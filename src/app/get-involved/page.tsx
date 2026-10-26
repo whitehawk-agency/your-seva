@@ -12,7 +12,7 @@ import { involvement } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "Fundraise, volunteer a skill, or partner with YourSeva. Practical ways to join the work beyond donating.",
+    "Fundraise, volunteer a skill, or partner with Your Seva. Practical ways to join the work beyond donating.",
   alternates: { canonical: "/get-involved" },
 };
 

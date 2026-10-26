@@ -3,20 +3,13 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import { NewsletterForm } from "@/components/shared/newsletter-form";
 import { LogoMark } from "@/components/shared/logo";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  YoutubeIcon,
-} from "@/components/shared/social-icons";
+import { InstagramIcon, XIcon } from "@/components/shared/social-icons";
 import { Button } from "@/components/ui/button";
 import { footerNav, site } from "@/lib/content";
 
 const socials = [
   { label: "Instagram", href: site.social.instagram, Icon: InstagramIcon },
-  { label: "Facebook", href: site.social.facebook, Icon: FacebookIcon },
-  { label: "LinkedIn", href: site.social.linkedin, Icon: LinkedinIcon },
-  { label: "YouTube", href: site.social.youtube, Icon: YoutubeIcon },
+  { label: "X", href: site.social.x, Icon: XIcon },
 ];
 
 export function SiteFooter() {
@@ -28,7 +21,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-2.5">
               <LogoMark className="size-10 text-saffron-500" />
               <span className="font-display text-2xl font-extrabold tracking-[-0.035em] text-white">
-                Your<span className="text-saffron-500">Seva</span>
+                Your <span className="text-saffron-500">Seva</span>
               </span>
             </div>
 
@@ -134,7 +127,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-4 py-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. Registered charity number {site.charityNumber}.
+            © {new Date().getFullYear()} {site.name}. Registered charity number {site.charityNumber}. Company number {site.companyNumber}.
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>

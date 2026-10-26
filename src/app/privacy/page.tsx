@@ -7,7 +7,7 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How YourSeva collects, uses and protects your personal data.",
+  description: "How Your Seva collects, uses and protects your personal data.",
   alternates: { canonical: "/privacy" },
   robots: { index: false, follow: true },
 };

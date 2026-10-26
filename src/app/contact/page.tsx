@@ -8,7 +8,7 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Talk to a person at YourSeva — about a donation, fundraising, volunteering or partnering.",
+  description: "Talk to a person at Your Seva — about a donation, fundraising, volunteering or partnering.",
   alternates: { canonical: "/contact" },
 };
 

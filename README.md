@@ -1,9 +1,10 @@
-# YourSeva
+# Your Seva
 
-Marketing and fundraising site for **YourSeva** ([yourseva.org](https://yourseva.org)) — a UK
-non-profit rooted in the spirit of *seva* (selfless service) and the teachings of Guru Nanak Dev Ji,
-supporting vulnerable people through poverty relief, home rebuilding, senior care and education in
-Panjab and beyond.
+Marketing and fundraising site for **Your Seva** ([yourseva.org](https://yourseva.org)) — a UK
+registered charity (**1162477**, company **09320448**) rooted in the spirit of *seva* (selfless
+service) and the teachings of Guru Nanak Dev Ji, supporting neglected, abandoned and
+poverty-stricken families in Panjab through food, home rebuilding, elder and winter care, and
+education.
 
 The design is photo-first and minimal, built around one proposition: **100% of public donations go
 directly to field projects**, with running costs covered separately by Gift Aid and private donors.
@@ -96,30 +97,53 @@ Remove the `note` prop once real photography is in place, and add your image hos
 
 ---
 
+## Content provenance
+
+`src/lib/content.ts` is the single source of copy and figures. Every entry carries a marker:
+
+- **`[VERIFIED]`** — from the Charity Commission register entry for YOUR SEVA (1162477), or from the
+  charity's own published pages. Charity and company numbers, trustee names and appointment dates,
+  the filed income and expenditure for the year ending 30 November 2024, the programme descriptions
+  and the £15 Ration Panee unit cost all sit here.
+- **`[CONFIRM]`** — gathered second-hand and **not** read from the live site. The site could not be
+  reached from the build environment (its network policy blocks outbound hosts), so the phone
+  number, email address and registered office came from search results and older filings. Check each
+  against yourseva.org before launch.
+- **`[TODO]`** — genuinely unknown. Cumulative totals (families supported, homes rebuilt, children
+  sponsored), the Gift Aid / private-donor split of running costs, trustee bios, and the policy
+  documents. The charity holds these; we do not.
+
+Nothing on the site states a figure we could not evidence. Where a number was unavailable the design
+uses a real unit cost or a process fact instead of an invented total.
+
 ## ⚠️ Before this goes live
 
 This build is design-complete, not launch-complete. The following are **deliberately unfinished**:
 
-1. **All content is placeholder.** Every figure, name, quote, date, address, phone number and
-   registration number in `src/lib/content.ts` is sample copy written to shape the design. Search
-   the file for `PLACEHOLDER` and replace each with trustee-verified data. In particular:
-   - `site.charityNumber` is `TBC`, and the phone number and postal address are invented.
-   - `impactStats`, `programmes[].outcomes` and `fundingBreakdown` are illustrative numbers.
-   - `stories` are written in the style of real cases but are **not** real people. Publishing them
-     as-is would misrepresent the organisation.
-   - `team` entries read "Name to confirm".
-2. **No payment provider is connected.** `components/sections/donate-form.tsx` validates and
-   summarises the gift, then stops at a confirmation state. Wire the submit handler to Stripe
-   Checkout (cards / one-off) or GoCardless (UK Direct Debit) from a route handler and redirect to a
-   thank-you route.
-3. **Forms do not send.** The contact and newsletter forms validate client-side and simulate a
-   submit. Point them at route handlers that forward to the team inbox, CRM and email platform.
-4. **`/privacy` and `/terms` are drafts** and are marked as such on the page. They need review
-   against UK GDPR, the Data Protection Act 2018 and PECR, and sign-off by the trustees.
-5. **Report links in `reports` point at `#`.** Replace with the filed accounts and policy PDFs.
-6. **Impact statements must be backed by unit costs.** "£25/mo provides educational supplies for a
-   child for a full year" is a factual claim about the programme and should be reconciled against
-   the project ledger before publication.
+1. **Verify the `[CONFIRM]` contact details.** Phone, email and registered office in
+   `src/lib/content.ts` could not be read from the live site. One source gives `info@yourseva.org`,
+   another `yoursevaorg@gmail.com`; the registered office comes from the 2020 accounts.
+2. **Fill the `[TODO]` figures.** Cumulative impact totals would do more for the site than anything
+   else on this list — the counters and programme stat rows are built to take them.
+3. **There is no photography.** Every image slot is an art-directed placeholder with a note
+   describing the shot that belongs there. The charity's own field photography (Instagram
+   [@yoursevaorg](https://instagram.com/yoursevaorg)) is the right source — do not substitute stock
+   or search-result images of people, which would misrepresent who the charity serves and carry
+   licensing risk.
+4. **Impact stories are programme-level, not personal.** We deliberately did not invent named
+   families or quotes. Replace them with real accounts once the charity supplies them, each with
+   written consent.
+5. **No payment provider is connected.** `components/sections/donate-form.tsx` validates and
+   summarises the gift, then stops at a confirmation state. Wire it to Stripe Checkout (cards /
+   one-off) or GoCardless (UK Direct Debit) via a route handler. The charity currently also receives
+   gifts through JustGiving and TotalGiving — those may be the quickest route to live.
+6. **Forms do not send.** Contact and newsletter forms validate and simulate a submit. Point them at
+   route handlers.
+7. **`/privacy` and `/terms` are drafts** and say so on the page. They need review against UK GDPR,
+   the Data Protection Act 2018 and PECR, and trustee sign-off.
+8. **Confirm the 100% donation policy wording** with the trustees. The charity states it on its
+   social profiles; the site's copy explains it as a funding structure, which the accounts should
+   support.
 
 Analytics, cookie consent and a CMS are not included — add them according to the privacy policy you
 publish.

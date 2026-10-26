@@ -15,15 +15,15 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Poverty relief, housing and rebuilding, senior care and education — the four YourSeva programmes, how they work and what they cost.",
+    "Ration Panee, housing and rebuilding, elder and winter care, and education — the four Your Seva programmes in Panjab, and what they cost.",
   alternates: { canonical: "/our-work" },
 };
 
-const districts = [
-  { name: "Amritsar", villages: 14 },
-  { name: "Tarn Taran", villages: 12 },
-  { name: "Ludhiana", villages: 13 },
-  { name: "Gurdaspur", villages: 9 },
+const howWeWork = [
+  { name: "Assessed in person", detail: "By our Panjab-based team, at the house itself" },
+  { name: "Paid directly", detail: "To local workmen, not through an intermediary" },
+  { name: "Released in stages", detail: "Against progress photographs and receipts" },
+  { name: "Delivered with sangat", detail: "Local referrals, including Sant Baba Gurbaksh Singh" },
 ];
 
 export default function OurWorkPage() {
@@ -140,33 +140,30 @@ export default function OurWorkPage() {
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-20">
           <SectionHeading
             tone="light"
-            eyebrow="Where we work"
+            eyebrow="How the work is done"
             title={
               <>
-                48 villages. <span className="text-white/45">Four districts.</span>
+                In Panjab, <span className="text-white/45">by people who live there.</span>
               </>
             }
-            description="Our field network is deliberately small and deep rather than wide and thin. Every village has a named volunteer who lives there."
+            description="Every assessment happens at the house itself, carried out by our Panjab-based team. Nothing is approved from a desk in the UK."
           />
 
           <Reveal index={1}>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {districts.map((district) => (
-                <li
-                  key={district.name}
-                  className="rounded-2xl border border-white/12 bg-white/5 p-6 backdrop-blur"
-                >
+              {howWeWork.map((item) => (
+                <li key={item.name} className="rounded-2xl border border-white/12 bg-white/5 p-6 backdrop-blur">
                   <MapPin aria-hidden className="size-5 text-saffron-400" />
-                  <p className="mt-4 font-display text-2xl font-extrabold tracking-[-0.02em] text-white">
-                    {district.name}
+                  <p className="mt-4 font-display text-xl font-extrabold tracking-[-0.02em] text-white">
+                    {item.name}
                   </p>
-                  <p className="mt-1 text-sm text-white/55">{district.villages} villages</p>
+                  <p className="mt-1 text-sm text-white/55">{item.detail}</p>
                 </li>
               ))}
             </ul>
             <p className="mt-6 text-sm leading-relaxed text-white/45">
-              We also run a smaller UK hardship fund and support partner-led work beyond Panjab where a
-              trusted local organisation can deliver better than we can.
+              Your Seva is a UK registered charity (1162477) working with neglected, abandoned and
+              poverty-stricken families in Panjab.
             </p>
           </Reveal>
         </div>

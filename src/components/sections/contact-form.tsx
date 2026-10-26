@@ -69,7 +69,7 @@ export function ContactForm({ defaultTopic = "general" }: { defaultTopic?: strin
         </h2>
         <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-600">
           A person will read this and reply, usually within two working days. If it is urgent and about a
-          donation, email giving@yourseva.org and put &ldquo;urgent&rdquo; in the subject.
+          donation, email info@yourseva.org and put &ldquo;urgent&rdquo; in the subject.
         </p>
         <p className="mt-6 rounded-2xl bg-ink-100 p-5 text-sm leading-relaxed text-ink-600">
           <strong className="font-semibold text-ink-900">Developer note:</strong> this form is not connected

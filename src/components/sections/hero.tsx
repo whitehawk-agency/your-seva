@@ -10,8 +10,8 @@ import { Badge } from "@/components/ui/badge";
 
 const trustRow = [
   { value: "100%", label: "to the field" },
-  { value: "48", label: "villages reached" },
-  { value: "2019", label: "serving since" },
+  { value: "£15", label: "feeds a family for a month" },
+  { value: "2014", label: "serving since" },
 ];
 
 export function Hero() {

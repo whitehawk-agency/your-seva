@@ -14,26 +14,26 @@ import { moneyFlow, trustPillars, vettingSteps } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The 100% Model",
   description:
-    "How 100% of public donations to YourSeva reach field projects: restricted funds, Gift Aid and private donors covering running costs, and a three-stage vetting process.",
+    "How 100% of public donations to Your Seva reach projects in Panjab: assessments carried out in person, workmen paid directly, and funds released against photographs and receipts.",
   alternates: { canonical: "/100-percent-model" },
 };
 
 const comparison = [
   {
-    label: "A typical £25 donation",
+    label: "A typical £15 donation",
     rows: [
-      { text: "£3–£6 to fundraising and admin", ok: false },
-      { text: "£0.60–£1 to card processing", ok: false },
-      { text: "£18–£21 reaches the project", ok: false },
+      { text: "£2–£4 to fundraising and admin", ok: false },
+      { text: "£0.40–£0.60 to card processing", ok: false },
+      { text: "£10–£12 reaches the project", ok: false },
     ],
     tone: "muted" as const,
   },
   {
-    label: "A £25 donation to YourSeva",
+    label: "A £15 donation to Your Seva",
     rows: [
       { text: "£0 to fundraising and admin", ok: true },
       { text: "£0 to card processing", ok: true },
-      { text: "£25 reaches the project", ok: true },
+      { text: "£15 reaches the project — a full month of food", ok: true },
     ],
     tone: "brand" as const,
   },
@@ -72,7 +72,7 @@ export default function HundredPercentPage() {
             eyebrow="Where your money goes"
             title={
               <>
-                Follow £100 <span className="text-ink-400">from your card to a rooftop.</span>
+                Follow £15 <span className="text-ink-400">from your card to a family&apos;s door.</span>
               </>
             }
             description="Four steps, no detours. The only thing that touches your donation between here and the field is a bank transfer."
@@ -110,7 +110,7 @@ export default function HundredPercentPage() {
             eyebrow="The difference, in pounds"
             title={
               <>
-                The same £25, <span className="text-ink-400">two different journeys.</span>
+                The same £15, <span className="text-ink-400">two different journeys.</span>
               </>
             }
             description="We are not criticising charities that take an overhead cut — it is honest and necessary accounting. We simply fund ours separately so you never have to think about it."
@@ -219,18 +219,18 @@ export default function HundredPercentPage() {
               eyebrow="Vetted verification"
               title={
                 <>
-                  Nothing is funded <span className="text-white/45">on a feeling.</span>
+                  Nothing is funded <span className="text-white/45">from a desk.</span>
                 </>
               }
-              description="Four stages between a referral and a payment. It slows us down by about three weeks, and it is the reason our money lands where it should."
+              description="Four stages between a referral and a payment, carried out on the ground in Panjab rather than from a desk in the UK."
             />
 
             <Reveal index={3}>
               <div className="mt-10 space-y-4">
                 {[
-                  { icon: Lock, text: "Restricted and unrestricted funds held in separate accounts" },
-                  { icon: Receipt, text: "Payments made against invoices, published with the project" },
-                  { icon: Banknote, text: "At least two local quotes before any build is approved" },
+                  { icon: Lock, text: "Needs assessed in person, at the house, by the Panjab team" },
+                  { icon: Receipt, text: "Staged funds released against progress photographs and receipts" },
+                  { icon: Banknote, text: "Workmen paid directly by us, not through an intermediary" },
                 ].map((item) => (
                   <p key={item.text} className="flex items-start gap-3 text-[0.9375rem] text-white/70">
                     <item.icon aria-hidden className="mt-0.5 size-5 shrink-0 text-saffron-400" />

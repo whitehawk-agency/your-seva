@@ -63,10 +63,10 @@ export function StoryCards({ limit = 3, heading = true }: { limit?: number; head
               eyebrow="Impact stories"
               title={
                 <>
-                  Real names. Real costs. <span className="text-ink-400">Real receipts.</span>
+                  What the work is. <span className="text-ink-400">What it costs.</span>
                 </>
               }
-              description="Each story is published with what it cost and what happened next — including the follow-up visit at twelve months."
+              description="How each programme actually runs in Panjab — who assesses the need, who gets paid, and what a pound buys."
               className="max-w-3xl"
             />
             <Reveal index={2}>

@@ -19,7 +19,7 @@ const schema = z.object({
   amount: z
     .number({ invalid_type_error: "Please choose or enter an amount." })
     .min(1, "Donations start at £1.")
-    .max(50000, "For gifts over £50,000 please email giving@yourseva.org so we can handle it properly."),
+    .max(50000, "For gifts over £50,000 please email info@yourseva.org so we can handle it properly."),
   designation: z.string(),
   firstName: z.string().trim().min(1, "Please enter your first name."),
   lastName: z.string().trim().min(1, "Please enter your last name."),
@@ -42,7 +42,7 @@ const designations = [
 
 export function DonateForm({
   defaultFrequency = "monthly",
-  defaultAmount = 25,
+  defaultAmount = 30,
   defaultDesignation = "unrestricted",
 }: {
   defaultFrequency?: Frequency;

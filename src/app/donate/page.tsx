@@ -6,7 +6,7 @@ import { DonateForm } from "@/components/sections/donate-form";
 import { FaqSection } from "@/components/sections/faq-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { Reveal } from "@/components/shared/reveal";
-import { donationTiers, site, type Frequency } from "@/lib/content";
+import { defaultAmount, donationTiers, site, type Frequency } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -26,7 +26,7 @@ const otherWays = [
   {
     icon: Repeat,
     title: "Payroll giving",
-    body: "Give straight from your salary before tax. Ask your employer to add YourSeva, or email us and we will do the paperwork.",
+    body: "Give straight from your salary before tax. Ask your employer to add Your Seva, or email us and we will do the paperwork.",
   },
   {
     icon: HandHeart,
@@ -40,7 +40,7 @@ export default async function DonatePage({ searchParams }: { searchParams: Searc
 
   const frequency: Frequency = params.frequency === "once" ? "once" : "monthly";
   const parsedAmount = Number.parseFloat(params.amount ?? "");
-  const amount = Number.isFinite(parsedAmount) && parsedAmount >= 1 ? parsedAmount : 25;
+  const amount = Number.isFinite(parsedAmount) && parsedAmount >= 1 ? parsedAmount : defaultAmount;
   const designation = params.programme ?? "unrestricted";
 
   return (
@@ -86,8 +86,8 @@ export default async function DonatePage({ searchParams }: { searchParams: Searc
                   ))}
                 </ul>
                 <p className="mt-6 text-xs leading-relaxed text-white/45">
-                  Unit costs are reviewed quarterly against field invoices and published in our project
-                  ledger.
+                  The £15 Ration Panee figure is the unit cost the charity publishes. Other lines are indicative
+                  of what your giving funds.
                 </p>
               </div>
             </Reveal>

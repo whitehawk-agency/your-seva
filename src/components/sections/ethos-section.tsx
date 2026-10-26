@@ -25,9 +25,9 @@ export function EthosSection() {
               className="aspect-[5/6]"
             />
             <div className="absolute -bottom-6 -right-4 w-56 rounded-2xl bg-ink-950 p-5 text-white shadow-lift sm:-right-8 sm:w-64">
-              <p className="font-display text-3xl font-extrabold tracking-[-0.03em] text-saffron-400">2019</p>
+              <p className="font-display text-3xl font-extrabold tracking-[-0.03em] text-saffron-400">2014</p>
               <p className="mt-1.5 text-sm leading-relaxed text-white/70">
-                Four families, one WhatsApp group, eleven households fed.
+                Serving families in Panjab since. Registered charity 1162477.
               </p>
             </div>
           </div>
@@ -50,15 +50,15 @@ export function EthosSection() {
           <Reveal index={2}>
             <div className="mt-6 space-y-5 text-[1.0625rem] leading-relaxed text-ink-600">
               <p>
-                YourSeva began the way most good things do: a small group of people who could not look away.
-                Four families in the UK pooling monthly giving to cover ration parcels for eleven households
-                in one village in Panjab.
+                Your Seva is a UK charity working with neglected, abandoned and poverty-stricken families in
+                Panjab. Food each month, homes made safe again, warmth before winter, and school fees for
+                children who would otherwise stop — carried out by a team on the ground there.
               </p>
               <p>
                 We are guided by the teachings of Guru Nanak Dev Ji — that honest work, remembrance and
                 sharing what you have are one practice, not three. In the gurdwara, everyone eats in the same
-                row from the same kitchen. That is the standard we try to hold in how we fund, build and
-                report.
+                row from the same kitchen. That is the standard we try to hold in how we assess, fund and
+                account for every project.
               </p>
               <p>
                 We serve anyone in need, of any faith, caste or background. <em>Sarbat da bhala</em> — the

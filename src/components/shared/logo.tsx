@@ -30,7 +30,7 @@ export function Logo({
     <Link
       href={href}
       className={cn("group inline-flex items-center gap-2.5 rounded-full", className)}
-      aria-label="YourSeva — home"
+      aria-label="Your Seva — home"
     >
       <LogoMark className="size-9 text-saffron-500 transition-transform duration-300 group-hover:-rotate-6" />
       <span
@@ -39,7 +39,7 @@ export function Logo({
           tone === "light" ? "text-white" : "text-ink-900",
         )}
       >
-        Your<span className="text-saffron-500">Seva</span>
+        Your <span className="text-saffron-500">Seva</span>
       </span>
     </Link>
   );

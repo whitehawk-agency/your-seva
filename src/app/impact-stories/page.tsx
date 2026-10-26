@@ -7,7 +7,7 @@ import { StoriesExplorer } from "@/components/sections/stories-explorer";
 export const metadata: Metadata = {
   title: "Impact Stories",
   description:
-    "Families, elders and children supported by YourSeva — each story published with what it cost, who was paid and what the follow-up visit found.",
+    "How Your Seva's programmes work in Panjab — Ration Panee, home rebuilding, winter care and education, with the costs behind them.",
   alternates: { canonical: "/impact-stories" },
 };
 
@@ -18,10 +18,10 @@ export default function ImpactStoriesPage() {
         eyebrow="Impact stories"
         title={
           <>
-            What actually happened, <span className="text-saffron-400">told plainly.</span>
+How the work actually runs, <span className="text-saffron-400">told plainly.</span>
           </>
         }
-        lede="No composite characters and no stock photography. Every story below is published with its cost, the tradespeople paid, and what we found when we went back."
+        lede="No composite characters and no stock photography. These are programme accounts — what each one does, who carries it out in Panjab, and the costs behind it. Family stories will be added here with written consent."
       />
       <StoriesExplorer />
       <CtaBand

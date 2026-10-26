@@ -12,7 +12,7 @@ import { fundingBreakdown, governance, reports, site, vettingSteps } from "@/lib
 export const metadata: Metadata = {
   title: "Reports & Accounts",
   description:
-    "YourSeva's annual accounts, project ledger, policies and governance — published in full rather than in summary.",
+    "Your Seva's registered charity details, filed accounts, trustees and the checks behind every project.",
   alternates: { canonical: "/transparency" },
 };
 

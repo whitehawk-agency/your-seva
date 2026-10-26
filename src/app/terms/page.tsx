@@ -7,7 +7,7 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Terms of use and donation terms for YourSeva.",
+  description: "Terms of use and donation terms for Your Seva.",
   alternates: { canonical: "/terms" },
   robots: { index: false, follow: true },
 };

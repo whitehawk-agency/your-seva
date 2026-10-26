@@ -14,7 +14,7 @@ import { team, timeline, values } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "YourSeva began in 2019 with four families and eleven households. Our story, our values, our timeline and the people who do the work.",
+    "Your Seva — a UK registered charity (1162477) serving families in Panjab since 2014. Our values, our timeline and our trustees.",
   alternates: { canonical: "/about" },
 };
 
@@ -25,10 +25,10 @@ export default function AboutPage() {
         eyebrow="About us"
         title={
           <>
-            A small organisation that intends <span className="text-saffron-400">to stay small.</span>
+Selfless service, <span className="text-saffron-400">accounted for.</span>
           </>
         }
-        lede="We are not trying to become a large charity. We are trying to be a trustworthy one — close to the ground, cheap to run, and impossible to misread."
+        lede="Your Seva is a UK registered charity working with neglected, abandoned and poverty-stricken families in Panjab — a company limited by guarantee since 2014, charity 1162477 since 2015."
       />
 
       <EthosSection />
@@ -74,7 +74,7 @@ export default function AboutPage() {
               eyebrow="How we got here"
               title={
                 <>
-                  Seven years, <span className="text-ink-400">no shortcuts.</span>
+  A decade of seva, <span className="text-ink-400">on the record.</span>
                 </>
               }
             />
@@ -109,10 +109,10 @@ export default function AboutPage() {
             eyebrow="The people"
             title={
               <>
-                Four people, <span className="text-ink-400">two countries,</span> one standard.
+                Three trustees, <span className="text-ink-400">one standard.</span>
               </>
             }
-            description="Plus 60-odd volunteers who do the visits, the deliveries and the follow-ups that this whole thing actually consists of."
+            description="Named on the Charity Commission register, with their appointment dates. No trustee takes any remuneration or benefit from the charity — plus the Panjab team and volunteers who do the assessments and deliveries."
           />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

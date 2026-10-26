@@ -32,7 +32,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           />
-          <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: -1 }}>YourSeva</div>
+          <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: -1 }}>Your Seva</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>

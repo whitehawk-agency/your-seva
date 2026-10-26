@@ -24,7 +24,7 @@ export function ImpactCounters() {
             <Reveal key={stat.label} index={index}>
               <div className="border-t border-white/15 pt-6">
                 <dd className="font-display text-5xl font-extrabold tracking-[-0.04em] text-white lg:text-6xl">
-                  <Counter value={stat.value} suffix={stat.suffix} />
+                  <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                 </dd>
                 <dt className="mt-3 font-display text-lg font-bold text-saffron-300">{stat.label}</dt>
                 <p className="mt-1.5 text-sm leading-relaxed text-white/55">{stat.sub}</p>
@@ -35,8 +35,8 @@ export function ImpactCounters() {
 
         <Reveal index={4}>
           <p className="mt-12 max-w-2xl text-sm leading-relaxed text-white/45">
-            Figures are updated quarterly from our project ledger and verified against field receipts at
-            three- and twelve-month follow-up visits.
+            Charitable spend is taken from the charity&apos;s filed accounts for the year ending 30 November
+            2024. The Ration Panee unit cost is the figure the charity publishes.
           </p>
         </Reveal>
       </div>
