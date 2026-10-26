@@ -34,10 +34,8 @@ const schema = z.object({
 
 type Values = z.infer<typeof schema>;
 
-export function ContactForm({ defaultTopic = "general" }: { defaultTopic?: string }) {
+export function ContactForm() {
   const [sent, setSent] = React.useState(false);
-
-  const known = topics.some((topic) => topic.value === defaultTopic) ? defaultTopic : "general";
 
   const {
     register,
@@ -47,10 +45,18 @@ export function ContactForm({ defaultTopic = "general" }: { defaultTopic?: strin
     formState: { errors, isSubmitting },
   } = useForm<Values>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", email: "", topic: known, message: "" },
+    defaultValues: { name: "", email: "", topic: "general", message: "" },
   });
 
   const topic = watch("topic");
+
+  // Deep links from the site (/contact?topic=fundraising) preselect a topic.
+  React.useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("topic");
+    if (requested && topics.some((item) => item.value === requested)) {
+      setValue("topic", requested);
+    }
+  }, [setValue]);
 
   async function onSubmit() {
     // TODO: POST to a route handler that forwards to the inbox / CRM.

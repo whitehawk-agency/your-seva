@@ -31,3 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...routes, ...storyRoutes];
 }
+
+export const dynamic = "force-static";

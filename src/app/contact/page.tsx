@@ -12,11 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-type SearchParams = Promise<{ topic?: string }>;
-
-export default async function ContactPage({ searchParams }: { searchParams: SearchParams }) {
-  const { topic } = await searchParams;
-
+export default function ContactPage() {
   return (
     <>
       <PageHero
@@ -33,7 +29,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Sear
         <div className="container-page grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
           <Reveal>
             <div className="rounded-3xl border border-ink-200 bg-white p-7 shadow-soft sm:p-10">
-              <ContactForm defaultTopic={topic} />
+              <ContactForm />
             </div>
           </Reveal>
 

@@ -53,3 +53,5 @@ export default function OpengraphImage() {
     size,
   );
 }
+
+export const dynamic = "force-static";

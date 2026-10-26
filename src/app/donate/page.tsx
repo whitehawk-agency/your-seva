@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HandHeart, Landmark, Mail, Repeat, ShieldCheck } from "lucide-react";
 
-import { DonateForm } from "@/components/sections/donate-form";
+import { DonatePanel, DonateTiers } from "@/components/sections/donate-panel";
 import { FaqSection } from "@/components/sections/faq-section";
 import { PageHero } from "@/components/sections/page-hero";
 import { Reveal } from "@/components/shared/reveal";
-import { defaultAmount, donationTiers, site, type Frequency } from "@/lib/content";
+import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -14,8 +14,6 @@ export const metadata: Metadata = {
     "Give once or monthly. 100% of your donation funds vetted field projects — our running costs are paid by Gift Aid and private donors.",
   alternates: { canonical: "/donate" },
 };
-
-type SearchParams = Promise<{ frequency?: string; amount?: string; programme?: string }>;
 
 const otherWays = [
   {
@@ -35,14 +33,7 @@ const otherWays = [
   },
 ];
 
-export default async function DonatePage({ searchParams }: { searchParams: SearchParams }) {
-  const params = await searchParams;
-
-  const frequency: Frequency = params.frequency === "once" ? "once" : "monthly";
-  const parsedAmount = Number.parseFloat(params.amount ?? "");
-  const amount = Number.isFinite(parsedAmount) && parsedAmount >= 1 ? parsedAmount : defaultAmount;
-  const designation = params.programme ?? "unrestricted";
-
+export default function DonatePage() {
   return (
     <>
       <PageHero
@@ -59,11 +50,7 @@ export default async function DonatePage({ searchParams }: { searchParams: Searc
         <div className="container-page grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
           <Reveal>
             <div className="rounded-3xl border border-ink-200 bg-white p-7 shadow-soft sm:p-10">
-              <DonateForm
-                defaultFrequency={frequency}
-                defaultAmount={amount}
-                defaultDesignation={designation}
-              />
+              <DonatePanel />
             </div>
           </Reveal>
 
@@ -74,17 +61,7 @@ export default async function DonatePage({ searchParams }: { searchParams: Searc
                 <h2 className="mt-5 font-display text-xl font-extrabold tracking-[-0.02em]">
                   What your money does
                 </h2>
-                <ul className="mt-5 space-y-4">
-                  {donationTiers[frequency].map((tier) => (
-                    <li key={tier.amount} className="border-t border-white/12 pt-4 first:border-0 first:pt-0">
-                      <span className="font-display text-2xl font-extrabold tracking-[-0.02em] text-saffron-400">
-                        £{tier.amount}
-                        {frequency === "monthly" ? "/mo" : ""}
-                      </span>
-                      <p className="mt-1.5 text-sm leading-relaxed text-white/70">{tier.detail}</p>
-                    </li>
-                  ))}
-                </ul>
+                <DonateTiers />
                 <p className="mt-6 text-xs leading-relaxed text-white/45">
                   The £15 Ration Panee figure is the unit cost the charity publishes. Other lines are indicative
                   of what your giving funds.
