@@ -122,6 +122,74 @@
   --shadow-lift: 0 2px 4px rgb(15 14 12 / 0.05), 0 24px 48px -16px rgb(15 14 12 / 0.22);
 
   --animate-marquee: marquee 38s linear infinite;
+  --animate-fade-in: fade-in 0.25s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-in;
+  --animate-panel-in: panel-in 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-panel-out: panel-out 0.22s ease-in;
+  --animate-accordion-down: accordion-down 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-accordion-up: accordion-up 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes panel-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+  }
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
 
   @keyframes marquee {
     from {
