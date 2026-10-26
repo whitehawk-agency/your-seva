@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   YourSeva design tokens
+   Warm, high-contrast, photo-first. Ink + sand base, saffron accent.
+------------------------------------------------------------------ */
+:root {
+  /* Brand ramp — saffron / marigold, the colour of langar and seva */
+  --saffron-50: #fff8ed;
+  --saffron-100: #ffefd4;
+  --saffron-200: #fddaa8;
+  --saffron-300: #fbc071;
+  --saffron-400: #f79c38;
+  --saffron-500: #e8871e;
+  --saffron-600: #c96a10;
+  --saffron-700: #a05010;
+  --saffron-800: #813f14;
+  --saffron-900: #6a3514;
+
+  /* Neutrals — warm ink on sand, never pure grey */
+  --ink-950: #0f0e0c;
+  --ink-900: #1a1816;
+  --ink-800: #2a2724;
+  --ink-700: #403b36;
+  --ink-600: #5c554e;
+  --ink-500: #7d746b;
+  --ink-400: #a79d93;
+  --ink-300: #cdc4ba;
+  --ink-200: #e5ddd3;
+  --ink-100: #f2ece3;
+  --ink-50: #faf6f0;
+
+  /* Supporting hues */
+  --clay-500: #a83a20;
+  --pine-900: #0e2e2a;
+  --pine-800: #123a35;
+  --pine-600: #1f5c53;
+
+  /* Semantic tokens (shadcn/ui compatible) */
+  --background: var(--ink-50);
+  --foreground: var(--ink-900);
+  --card: #ffffff;
+  --card-foreground: var(--ink-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink-900);
+  --primary: var(--saffron-500);
+  --primary-foreground: var(--ink-950);
+  --secondary: var(--ink-100);
+  --secondary-foreground: var(--ink-900);
+  --muted: var(--ink-100);
+  --muted-foreground: var(--ink-600);
+  --accent: var(--pine-800);
+  --accent-foreground: #ffffff;
+  --destructive: #b4231a;
+  --destructive-foreground: #ffffff;
+  --border: var(--ink-200);
+  --input: var(--ink-200);
+  --ring: var(--saffron-500);
+  --radius: 0.875rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-saffron-50: var(--saffron-50);
+  --color-saffron-100: var(--saffron-100);
+  --color-saffron-200: var(--saffron-200);
+  --color-saffron-300: var(--saffron-300);
+  --color-saffron-400: var(--saffron-400);
+  --color-saffron-500: var(--saffron-500);
+  --color-saffron-600: var(--saffron-600);
+  --color-saffron-700: var(--saffron-700);
+  --color-saffron-800: var(--saffron-800);
+  --color-saffron-900: var(--saffron-900);
+
+  --color-ink-50: var(--ink-50);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-ink-950: var(--ink-950);
+
+  --color-clay: var(--clay-500);
+  --color-pine-600: var(--pine-600);
+  --color-pine-800: var(--pine-800);
+  --color-pine-900: var(--pine-900);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 14px);
+  --radius-3xl: calc(var(--radius) + 26px);
+
+  --shadow-soft: 0 1px 2px rgb(15 14 12 / 0.04), 0 8px 24px -8px rgb(15 14 12 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(15 14 12 / 0.05), 0 24px 48px -16px rgb(15 14 12 / 0.22);
+
+  --animate-marquee: marquee 38s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--saffron-200);
+    color: var(--ink-950);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-feature-settings: "ss01" 1;
+  }
+
+  /* Visible, on-brand focus ring everywhere */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-[82rem] px-5 sm:px-8 lg:px-10;
+}
+
+/* Display type: tight, confident, charity:water-grade headlines */
+@utility headline {
+  @apply font-display font-extrabold tracking-[-0.03em] leading-[0.95] text-balance;
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.18em];
+}
+
+/* Subtle film grain so flat colour fields never look plasticky */
+@utility grain {
+  position: relative;
+}
+
+@utility grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
