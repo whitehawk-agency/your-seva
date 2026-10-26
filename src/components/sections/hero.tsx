@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 import { DonationWidget } from "@/components/sections/donation-widget";
 import { Button } from "@/components/ui/button";
@@ -85,18 +85,18 @@ export function Hero() {
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <Button asChild variant="white" size="xl">
+            <Button asChild variant="white" size="xl" className="w-full sm:w-auto">
               <Link href="/our-work">
                 See our work
                 <ArrowRight aria-hidden />
               </Link>
             </Button>
-            <Button asChild variant="outline-light" size="xl">
+            <Button asChild variant="outline-light" size="xl" className="w-full sm:w-auto">
               <Link href="/impact-stories">
-                <Play aria-hidden className="fill-current" />
-                Watch a story
+                <BookOpen aria-hidden />
+                Read their stories
               </Link>
             </Button>
           </motion.div>
