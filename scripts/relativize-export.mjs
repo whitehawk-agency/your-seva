@@ -80,10 +80,28 @@ for (const file of pages) {
   body = body.replaceAll(`(/${TO_DIR}/`, `(${prefix}${TO_DIR}/`);
   body = body.replaceAll('"/icon.svg"', `"${prefix}icon.svg"`);
 
-  // NOTE: page href values are deliberately left absolute. Rewriting them here
-  // desynchronises the prerendered HTML from what React renders on hydration
-  // (error #418), and the router then restores the original values anyway.
-  // Serving from a sub-path needs `basePath` set at build time instead.
+  // Page hrefs stay absolute in the markup: rewriting them here would
+  // desynchronise the prerendered HTML from hydration (React #418), and the
+  // router restores the originals anyway. Instead, inject a small script that
+  // runs AFTER hydration and rebases internal links against wherever the page
+  // actually turned out to be served from. A no-op at a domain root.
+  const route = `/${rel.replace(/index\.html$/, "")}`;
+  const rebase = `<script>(function(){var r=${JSON.stringify(route)},p=location.pathname;` +
+    `if(!p.endsWith(r))return;var b=p.slice(0,p.length-r.length);if(!b)return;` +
+    `function fix(){document.querySelectorAll('a[href^="/"]:not([data-rebased])').forEach(function(a){` +
+    `var h=a.getAttribute("href");if(!h||h.slice(0,2)==="//")return;` +
+    `a.setAttribute("href",b+h.replace(/^(\\/[^#?]*\\/)(?=#|\\?|$)/,"$1index.html"));` +
+    `a.setAttribute("data-rebased","1")})}` +
+    // The App Router intercepts link clicks and resolves them against a route
+    // table that assumes the domain root, discarding the rebased href. A
+    // capture-phase listener runs first and navigates the browser instead.
+    `function nav(e){var t=e.target;var a=t&&t.closest?t.closest("a[data-rebased]"):null;` +
+    `if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;` +
+    `e.preventDefault();e.stopPropagation();location.href=a.getAttribute("href")}` +
+    `function go(){fix();addEventListener("click",nav,true);` +
+    `new MutationObserver(fix).observe(document.body,{subtree:true,childList:true})}` +
+    `if(document.readyState==="complete")setTimeout(go,0);else addEventListener("load",function(){setTimeout(go,0)})})();</script>`;
+  body = body.replace("</body>", `${rebase}</body>`);
   if (body !== before) {
     await writeFile(file, body);
     rewritten += 1;
