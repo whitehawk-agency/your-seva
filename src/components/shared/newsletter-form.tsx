@@ -40,7 +40,7 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) 
       <p
         className={cn(
           "flex items-center gap-2.5 rounded-xl border px-4 py-3.5 text-sm font-semibold",
-          onLight ? "border-saffron-200 bg-saffron-50 text-saffron-800" : "border-white/20 bg-white/10 text-white",
+          onLight ? "border-orange-200 bg-orange-50 text-orange-900" : "border-white/20 bg-white/10 text-white",
         )}
       >
         <Check className="size-4 shrink-0" />
@@ -77,12 +77,12 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) 
       <label
         className={cn(
           "flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed",
-          onLight ? "text-ink-500" : "text-white/60",
+          onLight ? "text-slate-600" : "text-white/60",
         )}
       >
         <input
           type="checkbox"
-          className="mt-0.5 size-4 shrink-0 rounded border-ink-300 accent-saffron-500"
+          className="mt-0.5 size-4 shrink-0 rounded border-stone-300 accent-orange-500"
           aria-invalid={Boolean(errors.consent)}
           {...register("consent")}
         />

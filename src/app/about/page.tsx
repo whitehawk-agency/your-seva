@@ -25,7 +25,7 @@ export default function AboutPage() {
         eyebrow="About us"
         title={
           <>
-Selfless service, <span className="text-saffron-400">accounted for.</span>
+Selfless service, <span className="text-orange-400">accounted for.</span>
           </>
         }
         lede="Your Seva is a UK registered charity working with neglected, abandoned and poverty-stricken families in Panjab — a company limited by guarantee since 2014, charity 1162477 since 2015."
@@ -34,13 +34,13 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
       <EthosSection />
 
       {/* Values */}
-      <section className="bg-ink-50 py-20 lg:py-28">
+      <section className="bg-stone-50 py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="What we hold to"
             title={
               <>
-                Four values. <span className="text-ink-400">Each one costs us something.</span>
+                Four values. <span className="text-slate-500">Each one costs us something.</span>
               </>
             }
             description="Values that are free to hold are not values. These ones shape what we turn down as much as what we take on."
@@ -49,15 +49,15 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
             {values.map((value, index) => (
               <Reveal key={value.title} index={index % 2} className="h-full">
-                <div className="flex h-full gap-5 rounded-3xl border border-ink-200 bg-white p-8">
-                  <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-saffron-100 text-saffron-700">
+                <div className="flex h-full gap-5 rounded-3xl border border-stone-200 bg-white p-8">
+                  <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-900">
                     <value.icon aria-hidden className="size-6" strokeWidth={1.8} />
                   </span>
                   <div>
-                    <h3 className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+                    <h3 className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
                       {value.title}
                     </h3>
-                    <p className="mt-2 text-[1.0625rem] leading-relaxed text-ink-600">{value.body}</p>
+                    <p className="mt-2 text-[1.0625rem] leading-relaxed text-slate-600">{value.body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -74,27 +74,27 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
               eyebrow="How we got here"
               title={
                 <>
-  A decade of seva, <span className="text-ink-400">on the record.</span>
+  A decade of seva, <span className="text-slate-500">on the record.</span>
                 </>
               }
             />
           </div>
 
           <Reveal index={1}>
-            <ol className="relative border-l border-ink-200 pl-8">
+            <ol className="relative border-l border-stone-200 pl-8">
               {timeline.map((item, index) => (
                 <li key={item.year} className={index === timeline.length - 1 ? "" : "pb-12"}>
                   <span
                     aria-hidden
-                    className="absolute -left-[7px] mt-2 size-3.5 rounded-full border-2 border-white bg-saffron-500"
+                    className="absolute -left-[7px] mt-2 size-3.5 rounded-full border-2 border-white bg-orange-500"
                   />
-                  <span className="font-display text-sm font-extrabold tracking-[0.1em] text-saffron-700">
+                  <span className="font-display text-sm font-extrabold tracking-[0.1em] text-orange-900">
                     {item.year}
                   </span>
-                  <h3 className="mt-2 font-display text-2xl font-extrabold tracking-[-0.025em] text-ink-900">
+                  <h3 className="mt-2 font-display text-2xl font-extrabold tracking-[-0.025em] text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 max-w-xl text-[1.0625rem] leading-relaxed text-ink-600">{item.body}</p>
+                  <p className="mt-2 max-w-xl text-[1.0625rem] leading-relaxed text-slate-600">{item.body}</p>
                 </li>
               ))}
             </ol>
@@ -103,13 +103,13 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
       </section>
 
       {/* Team */}
-      <section className="bg-ink-50 py-20 lg:py-28">
+      <section className="bg-stone-50 py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="The people"
             title={
               <>
-                Three trustees, <span className="text-ink-400">one standard.</span>
+                Three trustees, <span className="text-slate-500">one standard.</span>
               </>
             }
             description="Named on the Charity Commission register, with their appointment dates. No trustee takes any remuneration or benefit from the charity — plus the Panjab team and volunteers who do the assessments and deliveries."
@@ -118,7 +118,7 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((person, index) => (
               <Reveal key={person.role} index={index} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-ink-200">
+                <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-stone-200">
                   <MediaFrame
                     alt={`${person.role}, ${person.location}`}
                     tone={person.tone}
@@ -127,14 +127,14 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
                     className="aspect-[4/5] rounded-none"
                   />
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-display text-lg font-extrabold tracking-[-0.02em] text-ink-900">
+                    <h3 className="font-display text-lg font-extrabold tracking-[-0.02em] text-slate-900">
                       {person.name}
                     </h3>
-                    <p className="mt-0.5 text-sm font-semibold text-saffron-700">{person.role}</p>
-                    <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.1em] text-ink-500">
+                    <p className="mt-0.5 text-sm font-semibold text-orange-900">{person.role}</p>
+                    <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.1em] text-slate-600">
                       {person.location}
                     </p>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-600">{person.bio}</p>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{person.bio}</p>
                   </div>
                 </article>
               </Reveal>
@@ -151,7 +151,7 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
               </Button>
               <Link
                 href="/transparency#governance"
-                className="text-sm font-semibold text-ink-700 underline decoration-saffron-400 decoration-2 underline-offset-4 hover:text-ink-950"
+                className="text-sm font-semibold text-slate-700 underline decoration-orange-400 decoration-2 underline-offset-4 hover:text-slate-950"
               >
                 See our governance
               </Link>
@@ -163,7 +163,7 @@ Selfless service, <span className="text-saffron-400">accounted for.</span>
       <CtaBand
         title={
           <>
-            Seva is a practice. <span className="text-saffron-400">Not a donation.</span>
+            Seva is a practice. <span className="text-orange-400">Not a donation.</span>
           </>
         }
         body="Give monthly, volunteer a skill, or fundraise where you are. All three are the same thing done differently."

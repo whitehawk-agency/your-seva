@@ -47,7 +47,7 @@ export default function HundredPercentPage() {
         title={
           <>
             Every penny you give is spent in the field.{" "}
-            <span className="text-saffron-400">Here is the mechanism.</span>
+            <span className="text-orange-400">Here is the mechanism.</span>
           </>
         }
         lede="Not a marketing promise — a funding structure. Public donations sit in a restricted account that cannot pay a salary, a subscription or a card fee. Those are paid from somewhere else, on purpose."
@@ -72,7 +72,7 @@ export default function HundredPercentPage() {
             eyebrow="Where your money goes"
             title={
               <>
-                Follow £15 <span className="text-ink-400">from your card to a family&apos;s door.</span>
+                Follow £15 <span className="text-slate-500">from your card to a family&apos;s door.</span>
               </>
             }
             description="Four steps, no detours. The only thing that touches your donation between here and the field is a bank transfer."
@@ -81,19 +81,19 @@ export default function HundredPercentPage() {
           <ol className="mt-14 grid gap-5 lg:grid-cols-4">
             {moneyFlow.map((step, index) => (
               <Reveal key={step.title} index={index} as="li" className="h-full">
-                <div className="relative flex h-full flex-col rounded-3xl border border-ink-200 bg-ink-50 p-7">
-                  <span className="font-display text-sm font-extrabold tracking-[0.1em] text-saffron-600">
+                <div className="relative flex h-full flex-col rounded-3xl border border-stone-200 bg-stone-50 p-7">
+                  <span className="font-display text-sm font-extrabold tracking-[0.1em] text-orange-900">
                     STEP {String(index + 1).padStart(2, "0")}
                   </span>
-                  <step.icon aria-hidden className="mt-5 size-8 text-ink-900" strokeWidth={1.6} />
-                  <h3 className="mt-5 font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+                  <step.icon aria-hidden className="mt-5 size-8 text-slate-900" strokeWidth={1.6} />
+                  <h3 className="mt-5 font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
                     {step.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">{step.body}</p>
+                  <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-slate-600">{step.body}</p>
                   {index < moneyFlow.length - 1 ? (
                     <ArrowRight
                       aria-hidden
-                      className="absolute -right-3.5 top-1/2 hidden size-7 -translate-y-1/2 text-saffron-400 lg:block"
+                      className="absolute -right-3.5 top-1/2 hidden size-7 -translate-y-1/2 text-orange-400 lg:block"
                     />
                   ) : null}
                 </div>
@@ -104,13 +104,13 @@ export default function HundredPercentPage() {
       </section>
 
       {/* Comparison */}
-      <section className="bg-ink-50 py-20 lg:py-28">
+      <section className="bg-stone-50 py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="The difference, in pounds"
             title={
               <>
-                The same £15, <span className="text-ink-400">two different journeys.</span>
+                The same £15, <span className="text-slate-500">two different journeys.</span>
               </>
             }
             description="We are not criticising charities that take an overhead cut — it is honest and necessary accounting. We simply fund ours separately so you never have to think about it."
@@ -122,15 +122,15 @@ export default function HundredPercentPage() {
                 <div
                   className={
                     column.tone === "brand"
-                      ? "flex h-full flex-col rounded-3xl bg-ink-950 p-8 text-white shadow-lift"
-                      : "flex h-full flex-col rounded-3xl border border-ink-200 bg-white p-8"
+                      ? "flex h-full flex-col rounded-3xl bg-slate-950 p-8 text-white shadow-lift"
+                      : "flex h-full flex-col rounded-3xl border border-stone-200 bg-white p-8"
                   }
                 >
                   <h3
                     className={
                       column.tone === "brand"
-                        ? "font-display text-xl font-extrabold text-saffron-400"
-                        : "font-display text-xl font-extrabold text-ink-500"
+                        ? "font-display text-xl font-extrabold text-orange-400"
+                        : "font-display text-xl font-extrabold text-slate-600"
                     }
                   >
                     {column.label}
@@ -142,8 +142,8 @@ export default function HundredPercentPage() {
                         <span
                           className={
                             row.ok
-                              ? "mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-saffron-500 text-ink-950"
-                              : "mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-ink-200 text-ink-500"
+                              ? "mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-orange-500 text-slate-950"
+                              : "mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-stone-200 text-slate-600"
                           }
                         >
                           {row.ok ? (
@@ -156,7 +156,7 @@ export default function HundredPercentPage() {
                           className={
                             column.tone === "brand"
                               ? "text-lg font-semibold text-white"
-                              : "text-lg font-semibold text-ink-700"
+                              : "text-lg font-semibold text-slate-700"
                           }
                         >
                           {row.text}
@@ -169,7 +169,7 @@ export default function HundredPercentPage() {
                     className={
                       column.tone === "brand"
                         ? "mt-8 border-t border-white/15 pt-6 text-sm leading-relaxed text-white/60"
-                        : "mt-8 border-t border-ink-200 pt-6 text-sm leading-relaxed text-ink-500"
+                        : "mt-8 border-t border-stone-200 pt-6 text-sm leading-relaxed text-slate-600"
                     }
                   >
                     {column.tone === "brand"
@@ -190,19 +190,19 @@ export default function HundredPercentPage() {
             eyebrow="What backs it up"
             title={
               <>
-                Three commitments <span className="text-ink-400">we can be held to.</span>
+                Three commitments <span className="text-slate-500">we can be held to.</span>
               </>
             }
           />
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {trustPillars.map((pillar, index) => (
               <Reveal key={pillar.title} index={index} className="h-full">
-                <div className="flex h-full flex-col rounded-3xl border border-ink-200 bg-ink-50 p-8">
-                  <pillar.icon aria-hidden className="size-8 text-saffron-600" strokeWidth={1.6} />
-                  <h3 className="mt-6 font-display text-2xl font-extrabold tracking-[-0.02em] text-ink-900">
+                <div className="flex h-full flex-col rounded-3xl border border-stone-200 bg-stone-50 p-8">
+                  <pillar.icon aria-hidden className="size-8 text-orange-600" strokeWidth={1.6} />
+                  <h3 className="mt-6 font-display text-2xl font-extrabold tracking-[-0.02em] text-slate-900">
                     {pillar.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-ink-600">{pillar.body}</p>
+                  <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-slate-600">{pillar.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -211,7 +211,7 @@ export default function HundredPercentPage() {
       </section>
 
       {/* Vetting */}
-      <section id="vetting" className="scroll-mt-28 bg-pine-900 py-20 text-white lg:py-28">
+      <section id="vetting" className="scroll-mt-28 bg-emerald-950 py-20 text-white lg:py-28">
         <div className="container-page grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
             <SectionHeading
@@ -219,7 +219,7 @@ export default function HundredPercentPage() {
               eyebrow="Vetted verification"
               title={
                 <>
-                  Nothing is funded <span className="text-white/45">from a desk.</span>
+                  Nothing is funded <span className="text-white/70">from a desk.</span>
                 </>
               }
               description="Four stages between a referral and a payment, carried out on the ground in Panjab rather than from a desk in the UK."
@@ -233,7 +233,7 @@ export default function HundredPercentPage() {
                   { icon: Banknote, text: "Workmen paid directly by us, not through an intermediary" },
                 ].map((item) => (
                   <p key={item.text} className="flex items-start gap-3 text-[0.9375rem] text-white/70">
-                    <item.icon aria-hidden className="mt-0.5 size-5 shrink-0 text-saffron-400" />
+                    <item.icon aria-hidden className="mt-0.5 size-5 shrink-0 text-orange-400" />
                     {item.text}
                   </p>
                 ))}
@@ -249,7 +249,7 @@ export default function HundredPercentPage() {
                   className="border-t border-white/12 py-7 first:border-t-0 first:pt-0"
                 >
                   <div className="flex gap-5">
-                    <span className="font-display text-2xl font-extrabold tracking-[-0.02em] text-saffron-400">
+                    <span className="font-display text-2xl font-extrabold tracking-[-0.02em] text-orange-400">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>

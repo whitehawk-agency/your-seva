@@ -24,13 +24,13 @@ export function PageHero({
     <section
       className={cn(
         "relative isolate -mt-18 overflow-hidden pt-18",
-        tone === "pine" ? "bg-pine-900" : "bg-ink-950",
+        tone === "pine" ? "bg-emerald-950" : "bg-slate-950",
       )}
     >
       <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute -left-[10%] top-[-30%] size-[55%] rounded-full bg-saffron-600/30 blur-[120px]" />
-        <div className="absolute right-[-8%] top-[-10%] size-[48%] rounded-full bg-pine-600/35 blur-[120px]" />
-        <div className="absolute bottom-[-40%] left-[30%] size-[55%] rounded-full bg-clay/25 blur-[130px]" />
+        <div className="absolute -left-[10%] top-[-30%] size-[55%] rounded-full bg-orange-600/30 blur-[120px]" />
+        <div className="absolute right-[-8%] top-[-10%] size-[48%] rounded-full bg-emerald-600/35 blur-[120px]" />
+        <div className="absolute bottom-[-40%] left-[30%] size-[55%] rounded-full bg-orange-800/25 blur-[130px]" />
         <div className="grain-overlay absolute inset-0 opacity-[0.14] mix-blend-soft-light" />
       </div>
 
@@ -42,7 +42,7 @@ export function PageHero({
       >
         <Reveal>
           <Badge variant="light" className="px-3.5 py-1.5">
-            <span aria-hidden className="size-1.5 rounded-full bg-saffron-400" />
+            <span aria-hidden className="size-1.5 rounded-full bg-orange-400" />
             {eyebrow}
           </Badge>
         </Reveal>

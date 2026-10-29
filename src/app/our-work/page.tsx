@@ -34,7 +34,7 @@ export default function OurWorkPage() {
         title={
           <>
             Four programmes, built around what people actually{" "}
-            <span className="text-saffron-400">asked us for.</span>
+            <span className="text-orange-400">asked us for.</span>
           </>
         }
         lede="We do not run pilots or write strategies. A household tells a field volunteer what is broken, we price it, we fix it, and we come back to check it held."
@@ -44,9 +44,9 @@ export default function OurWorkPage() {
             <Link
               key={programme.slug}
               href={`#${programme.slug}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:border-saffron-400 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:border-orange-400 hover:text-white"
             >
-              <programme.icon aria-hidden className="size-4 text-saffron-400" />
+              <programme.icon aria-hidden className="size-4 text-orange-400" />
               {programme.name}
             </Link>
           ))}
@@ -59,7 +59,7 @@ export default function OurWorkPage() {
           <section
             key={programme.slug}
             id={programme.slug}
-            className={cn("scroll-mt-28 py-20 lg:py-28", index % 2 === 0 ? "bg-white" : "bg-ink-50")}
+            className={cn("scroll-mt-28 py-20 lg:py-28", index % 2 === 0 ? "bg-white" : "bg-stone-50")}
           >
             <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal className={cn(flip && "lg:order-2")}>
@@ -81,24 +81,24 @@ export default function OurWorkPage() {
                 </Reveal>
 
                 <Reveal index={1}>
-                  <h2 className="headline mt-5 text-[2rem] text-ink-900 sm:text-4xl lg:text-5xl">
+                  <h2 className="headline mt-5 text-[2rem] text-slate-900 sm:text-4xl lg:text-5xl">
                     {programme.name}
                   </h2>
                 </Reveal>
 
                 <Reveal index={2}>
-                  <p className="mt-5 text-xl leading-relaxed text-ink-700">{programme.summary}</p>
+                  <p className="mt-5 text-xl leading-relaxed text-slate-700">{programme.summary}</p>
                 </Reveal>
 
                 <Reveal index={3}>
-                  <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-600">{programme.body}</p>
+                  <p className="mt-4 text-[1.0625rem] leading-relaxed text-slate-600">{programme.body}</p>
                 </Reveal>
 
                 <Reveal index={4}>
                   <ul className="mt-7 space-y-3">
                     {programme.activities.map((activity) => (
-                      <li key={activity} className="flex gap-3 text-[1.0625rem] text-ink-700">
-                        <span className="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-saffron-100 text-saffron-700">
+                      <li key={activity} className="flex gap-3 text-[1.0625rem] text-slate-700">
+                        <span className="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-900">
                           <Check aria-hidden className="size-3" strokeWidth={3} />
                         </span>
                         {activity}
@@ -108,13 +108,13 @@ export default function OurWorkPage() {
                 </Reveal>
 
                 <Reveal index={5}>
-                  <dl className="mt-8 grid grid-cols-3 gap-5 border-t border-ink-200 pt-6">
+                  <dl className="mt-8 grid grid-cols-3 gap-5 border-t border-stone-200 pt-6">
                     {programme.outcomes.map((outcome) => (
                       <div key={outcome.label}>
-                        <dd className="font-display text-3xl font-extrabold tracking-[-0.03em] text-ink-900">
+                        <dd className="font-display text-3xl font-extrabold tracking-[-0.03em] text-slate-900">
                           {outcome.value}
                         </dd>
-                        <dt className="mt-1 text-xs font-medium uppercase tracking-[0.1em] text-ink-500">
+                        <dt className="mt-1 text-xs font-medium uppercase tracking-[0.1em] text-slate-600">
                           {outcome.label}
                         </dt>
                       </div>
@@ -136,14 +136,14 @@ export default function OurWorkPage() {
         );
       })}
 
-      <section className="bg-pine-900 py-20 text-white lg:py-28">
+      <section className="bg-emerald-950 py-20 text-white lg:py-28">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-20">
           <SectionHeading
             tone="light"
             eyebrow="How the work is done"
             title={
               <>
-                In Panjab, <span className="text-white/45">by people who live there.</span>
+                In Panjab, <span className="text-white/70">by people who live there.</span>
               </>
             }
             description="Every assessment happens at the house itself, carried out by our Panjab-based team. Nothing is approved from a desk in the UK."
@@ -153,15 +153,15 @@ export default function OurWorkPage() {
             <ul className="grid gap-4 sm:grid-cols-2">
               {howWeWork.map((item) => (
                 <li key={item.name} className="rounded-2xl border border-white/12 bg-white/5 p-6 backdrop-blur">
-                  <MapPin aria-hidden className="size-5 text-saffron-400" />
+                  <MapPin aria-hidden className="size-5 text-orange-400" />
                   <p className="mt-4 font-display text-xl font-extrabold tracking-[-0.02em] text-white">
                     {item.name}
                   </p>
-                  <p className="mt-1 text-sm text-white/55">{item.detail}</p>
+                  <p className="mt-1 text-sm text-white/75">{item.detail}</p>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-relaxed text-white/45">
+            <p className="mt-6 text-sm leading-relaxed text-white/70">
               Your Seva is a UK registered charity (1162477) working with neglected, abandoned and
               poverty-stricken families in Panjab.
             </p>
@@ -172,7 +172,7 @@ export default function OurWorkPage() {
       <CtaBand
         title={
           <>
-            Pick a programme. <span className="text-saffron-400">Fund it end to end.</span>
+            Pick a programme. <span className="text-orange-400">Fund it end to end.</span>
           </>
         }
         body="Restrict your gift to poverty relief, housing, senior care or education — or leave it unrestricted so the field committee can fund the most urgent case this week."

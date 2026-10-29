@@ -50,7 +50,7 @@ export function DonateTiers() {
     <ul className="mt-5 space-y-4">
       {donationTiers[frequency].map((tier) => (
         <li key={tier.amount} className="border-t border-white/12 pt-4 first:border-0 first:pt-0">
-          <span className="font-display text-2xl font-extrabold tracking-[-0.02em] text-saffron-400">
+          <span className="font-display text-2xl font-extrabold tracking-[-0.02em] text-orange-400">
             £{tier.amount}
             {frequency === "monthly" ? "/mo" : ""}
           </span>

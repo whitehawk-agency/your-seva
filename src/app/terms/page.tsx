@@ -23,9 +23,9 @@ export default function TermsPage() {
 
       <section className="bg-white py-16 lg:py-24">
         <div className="container-page">
-          <div className="mb-10 flex max-w-2xl gap-3 rounded-2xl border border-saffron-300 bg-saffron-50 p-5">
-            <AlertTriangle aria-hidden className="mt-0.5 size-5 shrink-0 text-saffron-700" />
-            <p className="text-sm leading-relaxed text-saffron-900">
+          <div className="mb-10 flex max-w-2xl gap-3 rounded-2xl border border-orange-300 bg-orange-50 p-5">
+            <AlertTriangle aria-hidden className="mt-0.5 size-5 shrink-0 text-orange-900" />
+            <p className="text-sm leading-relaxed text-orange-900">
               <strong className="font-bold">Draft — not yet legally reviewed.</strong> Placeholder text to
               show the page in context. Replace with terms approved by the trustees and a solicitor before
               launch.

@@ -96,18 +96,18 @@ export function DonateForm({
   if (submitted) {
     const label = designations.find((item) => item.value === submitted.designation)?.label;
     return (
-      <div className="rounded-3xl border border-ink-200 bg-white p-8 shadow-soft sm:p-10">
-        <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-saffron-100 text-saffron-700">
+      <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-soft sm:p-10">
+        <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-900">
           <Check aria-hidden className="size-7" strokeWidth={2.5} />
         </span>
-        <h2 className="mt-6 font-display text-3xl font-extrabold tracking-[-0.03em] text-ink-900">
+        <h2 className="mt-6 font-display text-3xl font-extrabold tracking-[-0.03em] text-slate-900">
           Thank you, {submitted.firstName}.
         </h2>
-        <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-600">
+        <p className="mt-3 text-[1.0625rem] leading-relaxed text-slate-600">
           Here is exactly what your gift does. The final step is the secure payment screen.
         </p>
 
-        <dl className="mt-8 divide-y divide-ink-200 border-y border-ink-200">
+        <dl className="mt-8 divide-y divide-stone-200 border-y border-stone-200">
           {[
             {
               label: "Your gift",
@@ -124,17 +124,17 @@ export function DonateForm({
             { label: "Receipt to", value: submitted.email },
           ].map((row) => (
             <div key={row.label} className="flex flex-wrap justify-between gap-4 py-4">
-              <dt className="text-sm font-medium text-ink-500">{row.label}</dt>
-              <dd className="text-right font-semibold text-ink-900">{row.value}</dd>
+              <dt className="text-sm font-medium text-slate-600">{row.label}</dt>
+              <dd className="text-right font-semibold text-slate-900">{row.value}</dd>
             </div>
           ))}
         </dl>
 
-        <div className="mt-8 rounded-2xl bg-ink-100 p-5">
-          <p className="flex gap-2.5 text-sm leading-relaxed text-ink-600">
-            <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-ink-500" />
+        <div className="mt-8 rounded-2xl bg-stone-100 p-5">
+          <p className="flex gap-2.5 text-sm leading-relaxed text-slate-600">
+            <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-slate-600" />
             <span>
-              <strong className="font-semibold text-ink-900">Developer note:</strong> no payment provider is
+              <strong className="font-semibold text-slate-900">Developer note:</strong> no payment provider is
               connected in this build. Wire this submit handler to Stripe Checkout (cards and one-off gifts)
               or GoCardless (UK Direct Debit) and redirect to a thank-you route.
             </span>
@@ -152,10 +152,10 @@ export function DonateForm({
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-10">
       {/* Frequency */}
       <fieldset>
-        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
           1. How often?
         </legend>
-        <div className="mt-4 grid grid-cols-2 gap-1 rounded-full bg-ink-100 p-1">
+        <div className="mt-4 grid grid-cols-2 gap-1 rounded-full bg-stone-100 p-1">
           {(["monthly", "once"] as const).map((value) => {
             const selected = frequency === value;
             return (
@@ -167,7 +167,7 @@ export function DonateForm({
                 onClick={() => setValue("frequency", value, { shouldValidate: true })}
                 className={cn(
                   "relative inline-flex h-12 items-center justify-center rounded-full text-base font-bold transition-colors",
-                  selected ? "text-ink-950" : "text-ink-600 hover:text-ink-900",
+                  selected ? "text-slate-950" : "text-slate-700 hover:text-slate-900",
                 )}
               >
                 {selected ? (
@@ -175,7 +175,7 @@ export function DonateForm({
                     aria-hidden
                     layoutId="donate-frequency-pill"
                     transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }}
-                    className="absolute inset-0 rounded-full bg-saffron-500 shadow-soft"
+                    className="absolute inset-0 rounded-full bg-orange-500 shadow-soft"
                   />
                 ) : null}
                 <span className="relative">{value === "monthly" ? "Give monthly" : "Give once"}</span>
@@ -184,12 +184,12 @@ export function DonateForm({
           })}
         </div>
         {frequency === "monthly" ? (
-          <p className="mt-3 text-sm text-ink-500">
+          <p className="mt-3 text-sm text-slate-600">
             Monthly giving lets our field teams commit to work months ahead. Cancel any time, same day, no
             questions.
           </p>
         ) : (
-          <p className="mt-3 text-sm text-ink-500">
+          <p className="mt-3 text-sm text-slate-600">
             A single gift, allocated to a vetted project within the week.
           </p>
         )}
@@ -197,7 +197,7 @@ export function DonateForm({
 
       {/* Amount */}
       <fieldset>
-        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
           2. How much?
         </legend>
         <div role="radiogroup" aria-label="Amount" className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -216,8 +216,8 @@ export function DonateForm({
                 className={cn(
                   "inline-flex h-16 items-center justify-center rounded-2xl border-2 font-display text-xl font-extrabold tracking-[-0.02em] transition-all duration-200",
                   selected
-                    ? "border-ink-950 bg-ink-950 text-white"
-                    : "border-ink-200 bg-white text-ink-800 hover:border-ink-400",
+                    ? "border-slate-950 bg-slate-950 text-white"
+                    : "border-stone-200 bg-white text-slate-800 hover:border-slate-400",
                 )}
               >
                 {formatGBP(tier.amount)}
@@ -235,8 +235,8 @@ export function DonateForm({
             className={cn(
               "inline-flex h-11 items-center rounded-full border-2 px-5 text-sm font-bold transition-colors",
               customMode
-                ? "border-ink-950 bg-ink-950 text-white"
-                : "border-ink-200 bg-white text-ink-800 hover:border-ink-400",
+                ? "border-slate-950 bg-slate-950 text-white"
+                : "border-stone-200 bg-white text-slate-800 hover:border-slate-400",
             )}
           >
             Choose my own amount
@@ -255,7 +255,7 @@ export function DonateForm({
               <div className="pt-4">
                 <Label htmlFor="amount">Your amount</Label>
                 <div className="relative mt-2 max-w-xs">
-                  <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-display text-lg font-bold text-ink-500">
+                  <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-display text-lg font-bold text-slate-600">
                     £
                   </span>
                   <Input
@@ -287,9 +287,9 @@ export function DonateForm({
             animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
             exit={reduceMotion ? {} : { opacity: 0, y: -6 }}
             transition={{ duration: 0.22 }}
-            className="mt-5 flex gap-2.5 rounded-2xl bg-saffron-50 p-5 text-[0.9375rem] leading-relaxed text-saffron-900"
+            className="mt-5 flex gap-2.5 rounded-2xl bg-orange-50 p-5 text-[0.9375rem] leading-relaxed text-orange-900"
           >
-            <Heart aria-hidden className="mt-0.5 size-4 shrink-0 fill-current text-saffron-600" />
+            <Heart aria-hidden className="mt-0.5 size-4 shrink-0 fill-current text-orange-600" />
             <span>
               {matchedTier?.detail ??
                 `${formatGBP(amount || 0)}${frequency === "monthly" ? " a month" : ""} goes straight to a vetted project — not a penny is taken for admin.`}
@@ -300,7 +300,7 @@ export function DonateForm({
 
       {/* Designation */}
       <fieldset>
-        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
           3. What should it fund?
         </legend>
         <div role="radiogroup" aria-label="Designation" className="mt-4 grid gap-2.5 sm:grid-cols-2">
@@ -316,12 +316,12 @@ export function DonateForm({
                 className={cn(
                   "rounded-2xl border-2 p-4 text-left transition-all duration-200",
                   selected
-                    ? "border-saffron-500 bg-saffron-50"
-                    : "border-ink-200 bg-white hover:border-ink-400",
+                    ? "border-orange-500 bg-orange-50"
+                    : "border-stone-200 bg-white hover:border-slate-400",
                 )}
               >
-                <span className="block font-bold text-ink-900">{option.label}</span>
-                <span className="mt-0.5 block text-sm text-ink-500">{option.hint}</span>
+                <span className="block font-bold text-slate-900">{option.label}</span>
+                <span className="mt-0.5 block text-sm text-slate-600">{option.hint}</span>
               </button>
             );
           })}
@@ -330,7 +330,7 @@ export function DonateForm({
 
       {/* Details */}
       <fieldset>
-        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+        <legend className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
           4. Your details
         </legend>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -379,7 +379,7 @@ export function DonateForm({
                 {errors.email.message}
               </p>
             ) : (
-              <p className="mt-1.5 text-xs text-ink-500">
+              <p className="mt-1.5 text-xs text-slate-600">
                 For your receipt and a short field update. Nothing else, ever.
               </p>
             )}
@@ -390,17 +390,17 @@ export function DonateForm({
           </div>
         </div>
 
-        <label className="mt-6 flex cursor-pointer gap-3 rounded-2xl border-2 border-saffron-200 bg-saffron-50 p-5">
+        <label className="mt-6 flex cursor-pointer gap-3 rounded-2xl border-2 border-orange-200 bg-orange-50 p-5">
           <input
             type="checkbox"
-            className="mt-0.5 size-5 shrink-0 rounded border-ink-300 accent-saffron-500"
+            className="mt-0.5 size-5 shrink-0 rounded border-stone-300 accent-orange-500"
             {...register("giftAid")}
           />
           <span>
-            <span className="block font-bold text-ink-900">
+            <span className="block font-bold text-slate-900">
               Yes, add Gift Aid — it is what makes the 100% model work
             </span>
-            <span className="mt-1 block text-sm leading-relaxed text-ink-600">
+            <span className="mt-1 block text-sm leading-relaxed text-slate-600">
               I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than
               the amount of Gift Aid claimed on all my donations in that tax year, it is my responsibility to
               pay any difference. The 25p reclaimed on each pound funds our running costs, so your donation
@@ -410,26 +410,26 @@ export function DonateForm({
         </label>
       </fieldset>
 
-      <div className="rounded-3xl border border-ink-200 bg-ink-50 p-6">
+      <div className="rounded-3xl border border-stone-200 bg-stone-50 p-6">
         <dl className="space-y-3 text-[0.9375rem]">
           <div className="flex justify-between gap-4">
-            <dt className="text-ink-600">Your gift</dt>
-            <dd className="font-bold text-ink-900">
+            <dt className="text-slate-600">Your gift</dt>
+            <dd className="font-bold text-slate-900">
               {formatGBP(amount || 0)}
               {frequency === "monthly" ? " / month" : ""}
             </dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className="text-ink-600">Gift Aid (funds our running costs)</dt>
-            <dd className="font-bold text-ink-900">
+            <dt className="text-slate-600">Gift Aid (funds our running costs)</dt>
+            <dd className="font-bold text-slate-900">
               {giftAidUplift ? `+ ${formatGBP(giftAidUplift)}` : "—"}
             </dd>
           </div>
-          <div className="flex justify-between gap-4 border-t border-ink-200 pt-3">
-            <dt className="font-semibold text-ink-900">
+          <div className="flex justify-between gap-4 border-t border-stone-200 pt-3">
+            <dt className="font-semibold text-slate-900">
               Reaching the field{frequency === "monthly" ? " each year" : ""}
             </dt>
-            <dd className="font-display text-xl font-extrabold tracking-[-0.02em] text-saffron-700">
+            <dd className="font-display text-xl font-extrabold tracking-[-0.02em] text-orange-900">
               {formatGBP(annualised)}
             </dd>
           </div>
@@ -441,10 +441,10 @@ export function DonateForm({
           {isSubmitting ? <Loader2 className="animate-spin" /> : <Lock />}
           Continue to secure payment
         </Button>
-        <p className="mt-4 flex items-center justify-center gap-2 text-xs text-ink-500">
-          <ShieldCheck aria-hidden className="size-4 text-pine-600" />
+        <p className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-600">
+          <ShieldCheck aria-hidden className="size-4 text-emerald-800" />
           100% of this donation reaches the field.{" "}
-          <Link href="/100-percent-model" className="font-semibold text-ink-700 underline underline-offset-2">
+          <Link href="/100-percent-model" className="font-semibold text-slate-700 underline underline-offset-2">
             How?
           </Link>
         </p>

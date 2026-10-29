@@ -24,8 +24,8 @@ export function EthosSection() {
               note="Photo slot — volunteers preparing parcels, hands in frame"
               className="aspect-[5/6]"
             />
-            <div className="absolute -bottom-6 -right-4 w-56 rounded-2xl bg-ink-950 p-5 text-white shadow-lift sm:-right-8 sm:w-64">
-              <p className="font-display text-3xl font-extrabold tracking-[-0.03em] text-saffron-400">2014</p>
+            <div className="absolute -bottom-6 -right-4 w-56 rounded-2xl bg-slate-950 p-5 text-white shadow-lift sm:-right-8 sm:w-64">
+              <p className="font-display text-3xl font-extrabold tracking-[-0.03em] text-orange-400">2014</p>
               <p className="mt-1.5 text-sm leading-relaxed text-white/70">
                 Serving families in Panjab since. Registered charity 1162477.
               </p>
@@ -35,20 +35,20 @@ export function EthosSection() {
 
         <div>
           <Reveal>
-            <span className="eyebrow flex items-center gap-2.5 text-saffron-700">
-              <span aria-hidden className="h-px w-7 bg-saffron-500/60" />
+            <span className="eyebrow flex items-center gap-2.5 text-orange-900">
+              <span aria-hidden className="h-px w-7 bg-orange-500/60" />
               Rooted in seva
             </span>
           </Reveal>
 
           <Reveal index={1}>
-            <h2 className="headline mt-5 text-[2.1rem] text-ink-900 sm:text-5xl lg:text-[3.3rem]">
-              Service is not charity. <span className="text-ink-400">It is an obligation.</span>
+            <h2 className="headline mt-5 text-[2.1rem] text-slate-900 sm:text-5xl lg:text-[3.3rem]">
+              Service is not charity. <span className="text-slate-500">It is an obligation.</span>
             </h2>
           </Reveal>
 
           <Reveal index={2}>
-            <div className="mt-6 space-y-5 text-[1.0625rem] leading-relaxed text-ink-600">
+            <div className="mt-6 space-y-5 text-[1.0625rem] leading-relaxed text-slate-600">
               <p>
                 Your Seva is a UK charity working with neglected, abandoned and poverty-stricken families in
                 Panjab. Food each month, homes made safe again, warmth before winter, and school fees for
@@ -70,10 +70,10 @@ export function EthosSection() {
           <Reveal index={3}>
             <dl className="mt-9 grid gap-5 sm:grid-cols-3">
               {principles.map((principle) => (
-                <div key={principle.label} className="border-t border-ink-200 pt-4">
-                  <principle.icon aria-hidden className="size-5 text-saffron-600" strokeWidth={1.9} />
-                  <dt className="mt-3 font-display text-lg font-bold text-ink-900">{principle.label}</dt>
-                  <dd className="mt-0.5 text-sm text-ink-500">{principle.meaning}</dd>
+                <div key={principle.label} className="border-t border-stone-200 pt-4">
+                  <principle.icon aria-hidden className="size-5 text-orange-600" strokeWidth={1.9} />
+                  <dt className="mt-3 font-display text-lg font-bold text-slate-900">{principle.label}</dt>
+                  <dd className="mt-0.5 text-sm text-slate-600">{principle.meaning}</dd>
                 </div>
               ))}
             </dl>

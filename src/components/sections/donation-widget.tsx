@@ -47,17 +47,17 @@ export function DonationWidget({
       className={cn(
         "w-full rounded-3xl bg-white p-5 sm:p-6",
         variant === "overlay"
-          ? "shadow-lift ring-1 ring-ink-950/5 backdrop-blur-xl"
-          : "border border-ink-200 shadow-soft",
+          ? "shadow-lift ring-1 ring-slate-950/5 backdrop-blur-xl"
+          : "border border-stone-200 shadow-soft",
         className,
       )}
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="font-display text-xl font-extrabold tracking-[-0.02em] text-ink-900">
+          <h2 className="font-display text-xl font-extrabold tracking-[-0.02em] text-slate-900">
             Give with full confidence
           </h2>
-          <p className="mt-1 flex items-center gap-1.5 text-[0.8125rem] font-semibold text-pine-600">
+          <p className="mt-1 flex items-center gap-1.5 text-[0.8125rem] font-semibold text-emerald-800">
             <ShieldCheck aria-hidden className="size-4" />
             100% of this reaches the field
           </p>
@@ -68,7 +68,7 @@ export function DonationWidget({
       <div
         role="radiogroup"
         aria-label="Donation frequency"
-        className="mt-5 grid grid-cols-2 gap-1 rounded-full bg-ink-100 p-1"
+        className="mt-5 grid grid-cols-2 gap-1 rounded-full bg-stone-100 p-1"
       >
         {frequencies.map((option) => {
           const selected = frequency === option.value;
@@ -81,7 +81,7 @@ export function DonationWidget({
               onClick={() => setFrequency(option.value)}
               className={cn(
                 "relative inline-flex h-11 items-center justify-center rounded-full text-[0.9375rem] font-bold transition-colors",
-                selected ? "text-ink-950" : "text-ink-600 hover:text-ink-900",
+                selected ? "text-slate-950" : "text-slate-700 hover:text-slate-900",
               )}
             >
               {selected ? (
@@ -91,7 +91,7 @@ export function DonationWidget({
                   transition={
                     reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }
                   }
-                  className="absolute inset-0 rounded-full bg-saffron-500 shadow-soft"
+                  className="absolute inset-0 rounded-full bg-orange-500 shadow-soft"
                 />
               ) : null}
               <span className="relative">{option.label}</span>
@@ -121,8 +121,8 @@ export function DonationWidget({
               className={cn(
                 "inline-flex h-14 items-center justify-center rounded-xl border-2 font-display text-lg font-extrabold tracking-[-0.02em] transition-all duration-200",
                 selected
-                  ? "border-ink-950 bg-ink-950 text-white"
-                  : "border-ink-200 bg-white text-ink-800 hover:border-ink-400",
+                  ? "border-slate-950 bg-slate-950 text-white"
+                  : "border-stone-200 bg-white text-slate-800 hover:border-slate-400",
               )}
             >
               {formatGBP(tier.amount)}
@@ -137,8 +137,8 @@ export function DonationWidget({
           className={cn(
             "col-span-3 inline-flex h-14 items-center justify-center rounded-xl border-2 text-base font-bold transition-all duration-200 sm:col-span-1",
             isCustom
-              ? "border-ink-950 bg-ink-950 text-white"
-              : "border-ink-200 bg-white text-ink-800 hover:border-ink-400",
+              ? "border-slate-950 bg-slate-950 text-white"
+              : "border-stone-200 bg-white text-slate-800 hover:border-slate-400",
           )}
         >
           Custom
@@ -160,7 +160,7 @@ export function DonationWidget({
                 Custom amount in pounds
               </label>
               <div className="relative">
-                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-display text-lg font-bold text-ink-500">
+                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-display text-lg font-bold text-slate-600">
                   £
                 </span>
                 <Input
@@ -187,7 +187,7 @@ export function DonationWidget({
       </AnimatePresence>
 
       {/* Impact calculator line */}
-      <div className="mt-4 min-h-18 rounded-xl bg-saffron-50 p-4">
+      <div className="mt-4 min-h-18 rounded-xl bg-orange-50 p-4">
         <AnimatePresence initial={false} mode="wait">
           <motion.p
             key={`${frequency}-${isCustom ? "custom" : amount}`}
@@ -195,9 +195,9 @@ export function DonationWidget({
             animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
             exit={reduceMotion ? {} : { opacity: 0, y: -6 }}
             transition={{ duration: 0.22 }}
-            className="flex gap-2.5 text-[0.9375rem] leading-relaxed text-saffron-900"
+            className="flex gap-2.5 text-[0.9375rem] leading-relaxed text-orange-900"
           >
-            <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-saffron-600" />
+            <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-orange-600" />
             <span>
               {effectiveAmount ? (
                 <>
@@ -219,14 +219,16 @@ export function DonationWidget({
         <Link href={href}>
           <Heart aria-hidden className="fill-current" />
           Donate {effectiveAmount ? formatGBP(effectiveAmount) : "now"}
-          {effectiveAmount && frequency === "monthly" ? " monthly" : ""}
+          {effectiveAmount && frequency === "monthly" ? (
+            <span className="hidden sm:inline">monthly</span>
+          ) : null}
           <ArrowRight aria-hidden />
         </Link>
       </Button>
 
-      <p className="mt-3 text-center text-xs leading-relaxed text-ink-500">
+      <p className="mt-3 text-center text-xs leading-relaxed text-slate-600">
         Secure payment · Cancel a monthly gift any time ·{" "}
-        <Link href="/100-percent-model" className="font-semibold text-ink-700 underline underline-offset-2">
+        <Link href="/100-percent-model" className="font-semibold text-slate-700 underline underline-offset-2">
           How the 100% model works
         </Link>
       </p>

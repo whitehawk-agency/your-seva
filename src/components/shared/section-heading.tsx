@@ -33,12 +33,12 @@ export function SectionHeading({
           <span
             className={cn(
               "eyebrow flex items-center gap-2.5",
-              tone === "light" ? "text-saffron-300" : "text-saffron-700",
+              tone === "light" ? "text-orange-300" : "text-orange-900",
             )}
           >
             <span
               aria-hidden
-              className={cn("h-px w-7", tone === "light" ? "bg-saffron-300/60" : "bg-saffron-500/60")}
+              className={cn("h-px w-7", tone === "light" ? "bg-orange-300/60" : "bg-orange-500/60")}
             />
             {eyebrow}
           </span>
@@ -49,7 +49,7 @@ export function SectionHeading({
         <h2
           className={cn(
             "headline max-w-3xl text-[2.1rem] sm:text-5xl lg:text-[3.4rem]",
-            tone === "light" ? "text-white" : "text-ink-900",
+            tone === "light" ? "text-white" : "text-slate-900",
             align === "center" && "mx-auto",
           )}
         >
@@ -62,7 +62,7 @@ export function SectionHeading({
           <p
             className={cn(
               "max-w-2xl text-lg leading-relaxed",
-              tone === "light" ? "text-white/70" : "text-ink-600",
+              tone === "light" ? "text-white/70" : "text-slate-600",
               align === "center" && "mx-auto",
             )}
           >

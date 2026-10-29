@@ -7,7 +7,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
     <input
       type={type}
       className={cn(
-        "flex h-12 w-full rounded-xl border border-input bg-white px-4 py-2 text-base text-ink-900 shadow-xs transition-colors placeholder:text-ink-400 focus-visible:border-saffron-400 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive",
+        "flex h-12 w-full rounded-xl border border-input bg-white px-4 py-2 text-base text-slate-900 shadow-xs transition-colors placeholder:text-slate-600 focus-visible:border-orange-400 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive",
         className,
       )}
       {...props}

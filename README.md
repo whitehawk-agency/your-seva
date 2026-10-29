@@ -21,7 +21,7 @@ directly to field projects**, with running costs covered separately by Gift Aid 
 | Icons | `lucide-react` (brand glyphs hand-inlined in `shared/social-icons.tsx`) |
 | Motion | Framer Motion — scroll reveals, counters, layout-animated toggles |
 | Forms | React Hook Form + Zod via `@hookform/resolvers` |
-| Fonts | Plus Jakarta Sans (display) + Inter (body) through `next/font` |
+| Fonts | Source Serif 4 (display) + Inter (body/UI) through `next/font` |
 
 ## Getting started
 
@@ -29,8 +29,10 @@ directly to field projects**, with running costs covered separately by Gift Aid 
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build
+npm run build:static # fully static export to ./out
 npm run lint       # eslint (next/core-web-vitals + next/typescript)
 npm run typecheck  # tsc --noEmit
+npm run contrast   # WCAG audit against a running build (see Accessibility)
 ```
 
 ## Routes
@@ -70,16 +72,39 @@ can be edited without touching components — and later swapped for a CMS with o
 
 ## Design system
 
-Tokens live in `src/app/globals.css` under `:root` and are exposed to Tailwind through
-`@theme inline`. The palette is warm rather than neutral: **ink** (near-black through to sand) for
-structure, **saffron** as the single brand accent, with **pine** and **clay** as supporting fields.
+Tokens live in `src/app/globals.css` under `:root` and reach Tailwind through
+`@theme inline`. The ramps are Tailwind's own defaults — `orange`, `stone`, `slate`, `emerald` —
+so there are no custom colour definitions to drift out of sync.
 
-Utilities worth knowing: `container-page` (page gutter), `headline` (tight display type),
-`eyebrow` (section label), `grain-overlay` (film grain over flat colour).
+| Role | Value |
+| --- | --- |
+| Action / brand | `orange-700` `#c2410c` fill, white label (`orange-600` as the `brand` variant) |
+| Background | `stone-50` `#fafaf9` and pure white |
+| Dark neutral | `slate-900` `#0f172a` |
+| Verification accent | `emerald-700` / `emerald-800` |
+| Muted text | `slate-600` — the lightest grey clearing 7:1 on `stone-50` |
 
-Accessibility: visible focus rings site-wide, a skip link, semantic landmarks, `aria-checked` on
-all custom radio controls, and `prefers-reduced-motion` honoured by every animation — `Reveal` and
-`Counter` render statically and Framer transitions collapse to zero duration.
+Display type is a **serif** (`Source Serif 4`) set with the `headline` utility; UI and body copy
+are Inter. Section labels use the `section-label` utility — uppercase, `0.22em` tracking,
+`orange-800`.
+
+### Accessibility
+
+`npm run contrast` walks all twelve pages, resolves every text node's true foreground and
+background (compositing translucency and `oklch()` up the tree) and fails the build if anything
+misses its target.
+
+- **All body, heading and UI text meets WCAG AAA** — 7:1, or 4.5:1 where the text is large.
+- **Brand-coloured fills meet AA, not AAA.** White on `orange-700` is 5.22:1. No vivid orange can
+  reach 7:1 against white, so this is a deliberate, documented trade: the CTA keeps the brand, and
+  the audit holds anything tagged `data-contrast="brand"` to AA while everything else must hit AAA.
+  If strict AAA matters more than the brand hue, switch the `cta` variant to `orange-900`.
+- Focus indicators are 4.9:1 and 2px with an offset; input boundaries are 4.76:1 (1.4.11 wants 3:1).
+- No horizontal scrolling at 320px, 375px or 640px (= 200% zoom of a 1280px window).
+- `prefers-reduced-motion` is honoured by every animation — `Reveal` and `Counter` render
+  statically and Framer transitions collapse to zero duration.
+- Skip link, semantic landmarks, one `<h1>` per page, no heading-level skips, `aria-checked` on
+  every custom radio control, and the nav dropdowns are keyboard and `aria-expanded` driven.
 
 ## Photography
 
@@ -141,7 +166,13 @@ This build is design-complete, not launch-complete. The following are **delibera
    route handlers.
 7. **`/privacy` and `/terms` are drafts** and say so on the page. They need review against UK GDPR,
    the Data Protection Act 2018 and PECR, and trustee sign-off.
-8. **Confirm the 100% donation policy wording** with the trustees. The charity states it on its
+8. **The design references charity:water.** The supplied mockup carried charity:water's own
+   marketing copy verbatim — the "696 million people lack basic access to clean water" statistic,
+   the "open the door to education, income, dignity, and health" line and their 100% paragraph.
+   Those are charity:water's words about charity:water's cause, so the layout and UX patterns have
+   been matched while the copy has been replaced with Your Seva's own facts (the £15 Ration Panee
+   unit cost in place of the water statistic). Do not reinstate the original text.
+9. **Confirm the 100% donation policy wording** with the trustees. The charity states it on its
    social profiles; the site's copy explains it as a funding structure, which the accounts should
    support.
 

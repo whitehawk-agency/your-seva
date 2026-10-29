@@ -4,9 +4,9 @@ export function PartnersMarquee() {
   const row = [...partners, ...partners];
 
   return (
-    <section aria-label="Our partners" className="border-y border-ink-200 bg-white py-10">
+    <section aria-label="Our partners" className="border-y border-stone-200 bg-white py-10">
       <div className="container-page">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
           Delivered with local partners
         </p>
       </div>
@@ -23,7 +23,7 @@ export function PartnersMarquee() {
             <li
               key={`${partner}-${index}`}
               aria-hidden={index >= partners.length}
-              className="whitespace-nowrap font-display text-lg font-bold tracking-[-0.01em] text-ink-400"
+              className="whitespace-nowrap font-display text-lg font-bold tracking-[-0.01em] text-slate-600"
             >
               {partner}
             </li>

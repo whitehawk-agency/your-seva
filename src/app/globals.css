@@ -2,60 +2,48 @@
 
 /* ------------------------------------------------------------------
    Your Seva design tokens
-   Warm, high-contrast, photo-first. Ink + sand base, saffron accent.
+   Warm, high-contrast, photo-first. Stone + slate base, amber action colour,
+   emerald for verification. Every text pairing is checked against WCAG AAA
+   (7:1) — see scripts/contrast-audit.mjs.
 ------------------------------------------------------------------ */
 :root {
-  /* Brand ramp — saffron / marigold, the colour of langar and seva */
-  --saffron-50: #fff8ed;
-  --saffron-100: #ffefd4;
-  --saffron-200: #fddaa8;
-  --saffron-300: #fbc071;
-  --saffron-400: #f79c38;
-  --saffron-500: #e8871e;
-  --saffron-600: #c96a10;
-  --saffron-700: #a05010;
-  --saffron-800: #813f14;
-  --saffron-900: #6a3514;
+  /* ---------------------------------------------------------------
+     Semantic tokens. The ramps themselves are Tailwind's own defaults
+     (amber / stone / slate / emerald), so `bg-amber-600`, `bg-stone-50`
+     and `text-slate-900` work straight out of the box with no custom
+     colour definitions to drift out of sync.
+  --------------------------------------------------------------- */
+  /* Action orange. orange-700 is the default fill because white text on it
+     clears 4.9:1; orange-600 is the exact mockup hue and ships as the
+     `brand` button variant (3.6:1 — large text only). */
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --stone-50: #fafaf9; /* background neutral */
+  --slate-900: #0f172a; /* dark neutral */
+  --emerald-700: #047857; /* trust / verification accent */
 
-  /* Neutrals — warm ink on sand, never pure grey */
-  --ink-950: #0f0e0c;
-  --ink-900: #1a1816;
-  --ink-800: #2a2724;
-  --ink-700: #403b36;
-  --ink-600: #5c554e;
-  --ink-500: #7d746b;
-  --ink-400: #a79d93;
-  --ink-300: #cdc4ba;
-  --ink-200: #e5ddd3;
-  --ink-100: #f2ece3;
-  --ink-50: #faf6f0;
-
-  /* Supporting hues */
-  --clay-500: #a83a20;
-  --pine-900: #0e2e2a;
-  --pine-800: #123a35;
-  --pine-600: #1f5c53;
-
-  /* Semantic tokens (shadcn/ui compatible) */
-  --background: var(--ink-50);
-  --foreground: var(--ink-900);
+  --background: var(--stone-50);
+  --foreground: var(--slate-900);
   --card: #ffffff;
-  --card-foreground: var(--ink-900);
+  --card-foreground: var(--slate-900);
   --popover: #ffffff;
-  --popover-foreground: var(--ink-900);
-  --primary: var(--saffron-500);
-  --primary-foreground: var(--ink-950);
-  --secondary: var(--ink-100);
-  --secondary-foreground: var(--ink-900);
-  --muted: var(--ink-100);
-  --muted-foreground: var(--ink-600);
-  --accent: var(--pine-800);
+  --popover-foreground: var(--slate-900);
+  --primary: var(--orange-700);
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f4; /* stone-100 */
+  --secondary-foreground: var(--slate-900);
+  --muted: #f5f5f4;
+  /* slate-600 — the lightest grey that still clears WCAG AAA (7:1) on stone-50 */
+  --muted-foreground: #475569;
+  --accent: var(--emerald-700);
   --accent-foreground: #ffffff;
-  --destructive: #b4231a;
+  --destructive: #b91c1c; /* red-700, 7.06:1 on white */
   --destructive-foreground: #ffffff;
-  --border: var(--ink-200);
-  --input: var(--ink-200);
-  --ring: var(--saffron-500);
+  --border: #e7e5e4; /* stone-200 */
+  /* slate-500 — 4.76:1 against white, clearing the 3:1 that WCAG 1.4.11
+     requires for the boundary that identifies a form control */
+  --input: #64748b;
+  --ring: #c2410c; /* orange-700 — 4.9:1 focus indicator on light surfaces */
   --radius: 0.875rem;
 }
 
@@ -80,34 +68,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-saffron-50: var(--saffron-50);
-  --color-saffron-100: var(--saffron-100);
-  --color-saffron-200: var(--saffron-200);
-  --color-saffron-300: var(--saffron-300);
-  --color-saffron-400: var(--saffron-400);
-  --color-saffron-500: var(--saffron-500);
-  --color-saffron-600: var(--saffron-600);
-  --color-saffron-700: var(--saffron-700);
-  --color-saffron-800: var(--saffron-800);
-  --color-saffron-900: var(--saffron-900);
-
-  --color-ink-50: var(--ink-50);
-  --color-ink-100: var(--ink-100);
-  --color-ink-200: var(--ink-200);
-  --color-ink-300: var(--ink-300);
-  --color-ink-400: var(--ink-400);
-  --color-ink-500: var(--ink-500);
-  --color-ink-600: var(--ink-600);
-  --color-ink-700: var(--ink-700);
-  --color-ink-800: var(--ink-800);
-  --color-ink-900: var(--ink-900);
-  --color-ink-950: var(--ink-950);
-
-  --color-clay: var(--clay-500);
-  --color-pine-600: var(--pine-600);
-  --color-pine-800: var(--pine-800);
-  --color-pine-900: var(--pine-900);
-
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
@@ -118,8 +78,8 @@
   --radius-2xl: calc(var(--radius) + 14px);
   --radius-3xl: calc(var(--radius) + 26px);
 
-  --shadow-soft: 0 1px 2px rgb(15 14 12 / 0.04), 0 8px 24px -8px rgb(15 14 12 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(15 14 12 / 0.05), 0 24px 48px -16px rgb(15 14 12 / 0.22);
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -8px rgb(15 23 42 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.05), 0 24px 48px -16px rgb(15 23 42 / 0.22);
 
   --animate-marquee: marquee 38s linear infinite;
   --animate-fade-in: fade-in 0.25s ease-out;
@@ -214,11 +174,15 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     text-rendering: optimizeLegibility;
+    /* Decorative blur fields are positioned past the section edge. `clip`
+       (not `hidden`) contains them without creating a scroll container, so
+       the sticky header and scroll-margin anchors keep working. */
+    overflow-x: clip;
   }
 
   ::selection {
-    background: var(--saffron-200);
-    color: var(--ink-950);
+    background: #fed7aa;
+    color: var(--slate-900);
   }
 
   h1,
@@ -226,7 +190,6 @@
   h3,
   h4 {
     @apply font-display;
-    font-feature-settings: "ss01" 1;
   }
 
   /* Visible, on-brand focus ring everywhere */
@@ -254,12 +217,18 @@
 }
 
 /* Display type: tight, confident, charity:water-grade headlines */
+/* Big editorial serif statements — the voice of the whole site */
 @utility headline {
-  @apply font-display font-extrabold tracking-[-0.03em] leading-[0.95] text-balance;
+  @apply font-display font-normal tracking-[-0.015em] leading-[1.08] text-balance;
+}
+
+/* Uppercase letterspaced label above a section, charity:water style */
+@utility section-label {
+  @apply text-xs font-bold uppercase tracking-[0.22em] text-orange-800;
 }
 
 @utility eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.18em];
+  @apply text-xs font-bold uppercase tracking-[0.22em];
 }
 
 /* Subtle film grain so flat colour fields never look plasticky */

@@ -6,39 +6,39 @@ import { cn } from "@/lib/utils";
 
 const toneStyles = {
   warm: {
-    wrap: "bg-saffron-200",
-    a: "bg-saffron-400/70",
-    b: "bg-clay/40",
-    c: "bg-saffron-100/80",
-    glyph: "text-saffron-900/25",
+    wrap: "bg-orange-200",
+    a: "bg-orange-400/70",
+    b: "bg-orange-800/40",
+    c: "bg-orange-100/80",
+    glyph: "text-orange-900/25",
   },
   ink: {
-    wrap: "bg-ink-900",
-    a: "bg-saffron-500/35",
-    b: "bg-pine-600/45",
-    c: "bg-ink-700/70",
-    glyph: "text-saffron-200/25",
+    wrap: "bg-slate-900",
+    a: "bg-orange-500/35",
+    b: "bg-emerald-600/45",
+    c: "bg-slate-700/70",
+    glyph: "text-orange-200/25",
   },
   pine: {
-    wrap: "bg-pine-800",
-    a: "bg-pine-600/70",
-    b: "bg-saffron-400/30",
-    c: "bg-pine-900/60",
-    glyph: "text-saffron-100/25",
+    wrap: "bg-emerald-800",
+    a: "bg-emerald-600/70",
+    b: "bg-orange-400/30",
+    c: "bg-emerald-950/60",
+    glyph: "text-orange-100/25",
   },
   clay: {
-    wrap: "bg-clay",
-    a: "bg-saffron-400/50",
-    b: "bg-ink-900/35",
-    c: "bg-saffron-200/35",
-    glyph: "text-saffron-100/25",
+    wrap: "bg-orange-800",
+    a: "bg-orange-400/50",
+    b: "bg-slate-900/35",
+    c: "bg-orange-200/35",
+    glyph: "text-orange-100/25",
   },
   sand: {
-    wrap: "bg-ink-100",
-    a: "bg-saffron-200/80",
-    b: "bg-ink-300/60",
+    wrap: "bg-stone-100",
+    a: "bg-orange-200/80",
+    b: "bg-stone-300/60",
     c: "bg-white/70",
-    glyph: "text-ink-500/25",
+    glyph: "text-slate-600/25",
   },
 } as const;
 
@@ -98,7 +98,7 @@ export function MediaFrame({
           ) : null}
           <span aria-hidden className="grain-overlay absolute inset-0 opacity-[0.22] mix-blend-soft-light" />
           {note ? (
-            <span className="absolute left-4 right-4 top-4 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-white/45 mix-blend-plus-lighter">
+            <span className="absolute left-3 right-3 top-3 rounded-lg bg-slate-950/80 px-2.5 py-1.5 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
               {note}
             </span>
           ) : null}
@@ -108,7 +108,7 @@ export function MediaFrame({
       {children}
 
       {caption ? (
-        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950/85 via-ink-950/40 to-transparent p-6 pt-16 text-sm font-medium text-white/90">
+        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-6 pt-16 text-sm font-medium text-white/90">
           {caption}
         </figcaption>
       ) : null}

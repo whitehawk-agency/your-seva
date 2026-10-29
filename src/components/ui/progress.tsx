@@ -19,10 +19,10 @@ function Progress({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-label={label}
-      className={cn("h-2 w-full overflow-hidden rounded-full bg-ink-200", className)}
+      className={cn("h-2 w-full overflow-hidden rounded-full bg-stone-200", className)}
     >
       <div
-        className={cn("h-full rounded-full bg-saffron-500 transition-[width] duration-700", barClassName)}
+        className={cn("h-full rounded-full bg-orange-500 transition-[width] duration-700", barClassName)}
         style={{ width: `${clamped}%` }}
       />
     </div>

@@ -13,7 +13,7 @@ function StoryCard({ story, index, featured = false }: { story: Story; index: nu
     <Reveal index={index} className="h-full">
       <Link
         href={`/impact-stories/${story.slug}`}
-        className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-ink-200 transition-all duration-300 hover:-translate-y-1 hover:ring-saffron-300 hover:shadow-lift"
+        className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-stone-200 transition-all duration-300 hover:-translate-y-1 hover:ring-orange-300 hover:shadow-lift"
       >
         <MediaFrame
           alt={story.title}
@@ -25,23 +25,23 @@ function StoryCard({ story, index, featured = false }: { story: Story; index: nu
         <div className="flex flex-1 flex-col p-7">
           <div className="flex flex-wrap items-center gap-2">
             <Badge>{story.programme}</Badge>
-            <span className="text-xs font-medium text-ink-500">{story.readingTime}</span>
+            <span className="text-xs font-medium text-slate-600">{story.readingTime}</span>
           </div>
           <h3
             className={
               featured
-                ? "mt-4 font-display text-3xl font-extrabold tracking-[-0.03em] text-ink-900 sm:text-4xl"
-                : "mt-4 font-display text-2xl font-extrabold tracking-[-0.025em] text-ink-900"
+                ? "mt-4 font-display text-3xl font-extrabold tracking-[-0.03em] text-slate-900 sm:text-4xl"
+                : "mt-4 font-display text-2xl font-extrabold tracking-[-0.025em] text-slate-900"
             }
           >
             {story.title}
           </h3>
-          <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-ink-600">{story.excerpt}</p>
-          <div className="mt-6 flex items-center justify-between gap-4 border-t border-ink-200 pt-5">
-            <span className="text-sm font-semibold text-ink-700">{story.location}</span>
+          <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-slate-600">{story.excerpt}</p>
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-stone-200 pt-5">
+            <span className="text-sm font-semibold text-slate-700">{story.location}</span>
             <ArrowRight
               aria-hidden
-              className="size-5 text-saffron-600 transition-transform duration-300 group-hover:translate-x-1"
+              className="size-5 text-orange-600 transition-transform duration-300 group-hover:translate-x-1"
             />
           </div>
         </div>
@@ -55,7 +55,7 @@ export function StoryCards({ limit = 3, heading = true }: { limit?: number; head
   const [lead, ...rest] = items;
 
   return (
-    <section className="bg-ink-50 py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className="container-page">
         {heading ? (
           <div className="flex flex-wrap items-end justify-between gap-8">
@@ -63,7 +63,7 @@ export function StoryCards({ limit = 3, heading = true }: { limit?: number; head
               eyebrow="Impact stories"
               title={
                 <>
-                  What the work is. <span className="text-ink-400">What it costs.</span>
+                  What the work is. <span className="text-slate-500">What it costs.</span>
                 </>
               }
               description="How each programme actually runs in Panjab — who assesses the need, who gets paid, and what a pound buys."

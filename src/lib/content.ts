@@ -72,12 +72,35 @@ export const latestAccounts = {
   expenditure: 163362,
 } as const;
 
-export const navLinks = [
-  { label: "Our Work", href: "/our-work" },
-  { label: "100% Model", href: "/100-percent-model" },
-  { label: "Impact Stories", href: "/impact-stories" },
-  { label: "About Us", href: "/about" },
-] as const;
+export type NavLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string; description?: string }[];
+};
+
+export const navLinks: NavLink[] = [
+  {
+    label: "Take Action",
+    href: "/get-involved",
+    children: [
+      { label: "Donate", href: "/donate", description: "Give once or monthly" },
+      { label: "Fundraise for us", href: "/get-involved#fundraise", description: "Packs, pages and ideas" },
+      { label: "Volunteer a skill", href: "/get-involved#volunteer", description: "In the UK and in Panjab" },
+      { label: "Partner or sponsor", href: "/get-involved#partner", description: "Companies and gurdwaras" },
+    ],
+  },
+  {
+    label: "About Us",
+    href: "/about",
+    children: [
+      { label: "Our story", href: "/about", description: "Serving Panjab since 2014" },
+      { label: "Our work", href: "/our-work", description: "The four programmes" },
+      { label: "Impact stories", href: "/impact-stories", description: "How the work actually runs" },
+      { label: "Reports & accounts", href: "/transparency", description: "Filed, in full" },
+    ],
+  },
+  { label: "Why Your Seva?", href: "/100-percent-model" },
+];
 
 export const footerNav = [
   {
@@ -401,11 +424,11 @@ export const impactStats = [
     sub: "The published Ration Panee unit cost",
   },
   {
-    value: 163362,
-    prefix: "£",
+    value: 4,
+    prefix: "",
     suffix: "",
-    label: "Spent on charitable work",
-    sub: "Year ending 30 November 2024",
+    label: "Programmes running",
+    sub: "Food, housing, elder care, education",
   },
   {
     value: 11,

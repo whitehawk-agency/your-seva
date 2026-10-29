@@ -20,18 +20,18 @@ export function QuoteBand() {
 
           <Reveal index={1}>
             <figure>
-              <Quote aria-hidden className="size-10 text-saffron-400" />
+              <Quote aria-hidden className="size-10 text-orange-400" />
               <blockquote className="mt-6">
-                <p className="headline text-[1.9rem] text-ink-900 sm:text-4xl lg:text-[2.9rem]">
+                <p className="headline text-[1.9rem] text-slate-900 sm:text-4xl lg:text-[2.9rem]">
                   &ldquo;Seva is not something you give when you have spare. It is the thing you do because
                   someone else cannot.&rdquo;
                 </p>
               </blockquote>
-              <figcaption className="mt-8 border-t border-ink-200 pt-6">
-                <span className="block font-display text-lg font-bold text-ink-900">
+              <figcaption className="mt-8 border-t border-stone-200 pt-6">
+                <span className="block font-display text-lg font-bold text-slate-900">
                   Guru Nanak Dev Ji&apos;s teaching, in our volunteers&apos; words
                 </span>
-                <span className="mt-1 block text-sm text-ink-500">
+                <span className="mt-1 block text-sm text-slate-600">
                   Vand Chhako — share what you have. It is the whole organisation, in two words.
                 </span>
               </figcaption>

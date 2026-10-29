@@ -66,19 +66,19 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-3xl border border-ink-200 bg-white p-8 shadow-soft sm:p-10">
-        <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-saffron-100 text-saffron-700">
+      <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-soft sm:p-10">
+        <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-900">
           <Check aria-hidden className="size-7" strokeWidth={2.5} />
         </span>
-        <h2 className="mt-6 font-display text-2xl font-extrabold tracking-[-0.025em] text-ink-900">
+        <h2 className="mt-6 font-display text-2xl font-extrabold tracking-[-0.025em] text-slate-900">
           Message sent.
         </h2>
-        <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-600">
+        <p className="mt-3 text-[1.0625rem] leading-relaxed text-slate-600">
           A person will read this and reply, usually within two working days. If it is urgent and about a
           donation, email info@yourseva.org and put &ldquo;urgent&rdquo; in the subject.
         </p>
-        <p className="mt-6 rounded-2xl bg-ink-100 p-5 text-sm leading-relaxed text-ink-600">
-          <strong className="font-semibold text-ink-900">Developer note:</strong> this form is not connected
+        <p className="mt-6 rounded-2xl bg-stone-100 p-5 text-sm leading-relaxed text-slate-600">
+          <strong className="font-semibold text-slate-900">Developer note:</strong> this form is not connected
           to an inbox in this build. Point the submit handler at a route handler that forwards to the team
           inbox or CRM.
         </p>
@@ -123,7 +123,7 @@ export function ContactForm() {
       </div>
 
       <fieldset>
-        <legend className="text-sm font-semibold text-ink-800">What is it about?</legend>
+        <legend className="text-sm font-semibold text-slate-800">What is it about?</legend>
         <div role="radiogroup" aria-label="Topic" className="mt-3 flex flex-wrap gap-2">
           {topics.map((item) => {
             const selected = topic === item.value;
@@ -137,8 +137,8 @@ export function ContactForm() {
                 className={cn(
                   "inline-flex h-10 items-center rounded-full border-2 px-4 text-sm font-semibold transition-colors",
                   selected
-                    ? "border-ink-950 bg-ink-950 text-white"
-                    : "border-ink-200 bg-white text-ink-700 hover:border-ink-400",
+                    ? "border-slate-950 bg-slate-950 text-white"
+                    : "border-stone-200 bg-white text-slate-700 hover:border-slate-400",
                 )}
               >
                 {item.label}
@@ -169,9 +169,9 @@ export function ContactForm() {
           {isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
           Send message
         </Button>
-        <p className="mt-3 text-xs leading-relaxed text-ink-500">
+        <p className="mt-3 text-xs leading-relaxed text-slate-600">
           We use your details only to reply. We never sell or share them. See our{" "}
-          <a href="/privacy" className="font-semibold text-ink-700 underline underline-offset-2">
+          <a href="/privacy" className="font-semibold text-slate-700 underline underline-offset-2">
             privacy policy
           </a>
           .

@@ -30,27 +30,27 @@ export default function GetInvolvedPage() {
         eyebrow="Get involved"
         title={
           <>
-            Money is one kind of seva. <span className="text-saffron-400">There are others.</span>
+            Money is one kind of seva. <span className="text-orange-400">There are others.</span>
           </>
         }
         lede="Time, skill, a kitchen, a WhatsApp group, a birthday. Everything this organisation does started as one of those."
       />
 
-      <section className="bg-ink-50 py-20 lg:py-28">
+      <section className="bg-stone-50 py-20 lg:py-28">
         <div className="container-page grid gap-6 lg:grid-cols-3">
           {involvement.map((item, index) => (
             <Reveal key={item.id} index={index} className="h-full">
               <article
                 id={item.id}
-                className="flex h-full scroll-mt-28 flex-col rounded-3xl border border-ink-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-saffron-300 hover:shadow-lift"
+                className="flex h-full scroll-mt-28 flex-col rounded-3xl border border-stone-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-lift"
               >
-                <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-saffron-100 text-saffron-700">
+                <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-900">
                   <item.icon aria-hidden className="size-7" strokeWidth={1.75} />
                 </span>
-                <h2 className="mt-7 font-display text-2xl font-extrabold tracking-[-0.025em] text-ink-900">
+                <h2 className="mt-7 font-display text-2xl font-extrabold tracking-[-0.025em] text-slate-900">
                   {item.title}
                 </h2>
-                <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-ink-600">{item.body}</p>
+                <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-slate-600">{item.body}</p>
                 <Button asChild variant="outline" size="lg" className="mt-7 self-start">
                   <Link href={item.cta.href}>
                     {item.cta.label}
@@ -69,7 +69,7 @@ export default function GetInvolvedPage() {
             eyebrow="Fundraising ideas"
             title={
               <>
-                Four that <span className="text-ink-400">actually work.</span>
+                Four that <span className="text-slate-500">actually work.</span>
               </>
             }
             description="Tested by our supporters, in that order of success. We will send you everything you need for any of them."
@@ -78,12 +78,12 @@ export default function GetInvolvedPage() {
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {ideas.map((idea, index) => (
               <Reveal key={idea.title} index={index} className="h-full">
-                <div className="flex h-full flex-col rounded-3xl bg-ink-50 p-7">
-                  <idea.icon aria-hidden className="size-7 text-saffron-600" strokeWidth={1.7} />
-                  <h3 className="mt-5 font-display text-lg font-extrabold tracking-[-0.02em] text-ink-900">
+                <div className="flex h-full flex-col rounded-3xl bg-stone-50 p-7">
+                  <idea.icon aria-hidden className="size-7 text-orange-600" strokeWidth={1.7} />
+                  <h3 className="mt-5 font-display text-lg font-extrabold tracking-[-0.02em] text-slate-900">
                     {idea.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{idea.body}</p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{idea.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -91,14 +91,14 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="bg-pine-900 py-20 text-white lg:py-28">
+      <section className="bg-emerald-950 py-20 text-white lg:py-28">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-20">
           <SectionHeading
             tone="light"
             eyebrow="For companies and gurdwaras"
             title={
               <>
-                Fund a programme. <span className="text-white/45">Or fund our overheads.</span>
+                Fund a programme. <span className="text-white/70">Or fund our overheads.</span>
               </>
             }
             description="The rarest and most valuable thing anyone gives us is unrestricted funding for running costs — because it is what lets every public pound stay whole."
@@ -125,7 +125,7 @@ export default function GetInvolvedPage() {
       <CtaBand
         title={
           <>
-            Start where you are. <span className="text-saffron-400">Today is fine.</span>
+            Start where you are. <span className="text-orange-400">Today is fine.</span>
           </>
         }
         body="A monthly gift, an hour a week, or a supper for forty. Tell us what you can do and we will make it count."

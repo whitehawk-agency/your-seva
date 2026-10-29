@@ -49,10 +49,10 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
   return (
     <>
       <article>
-        <header className="relative isolate -mt-18 overflow-hidden bg-ink-950 pt-18 text-white">
+        <header className="relative isolate -mt-18 overflow-hidden bg-slate-950 pt-18 text-white">
           <div aria-hidden className="absolute inset-0 -z-10">
-            <div className="absolute -left-[10%] top-[-30%] size-[55%] rounded-full bg-saffron-600/25 blur-[120px]" />
-            <div className="absolute bottom-[-40%] right-[-5%] size-[50%] rounded-full bg-clay/30 blur-[120px]" />
+            <div className="absolute -left-[10%] top-[-30%] size-[55%] rounded-full bg-orange-600/25 blur-[120px]" />
+            <div className="absolute bottom-[-40%] right-[-5%] size-[50%] rounded-full bg-orange-800/30 blur-[120px]" />
             <div className="grain-overlay absolute inset-0 opacity-[0.14] mix-blend-soft-light" />
           </div>
 
@@ -67,15 +67,15 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Badge variant="light">{story.programme}</Badge>
-              <span className="flex items-center gap-1.5 text-sm text-white/55">
+              <span className="flex items-center gap-1.5 text-sm text-white/75">
                 <MapPin aria-hidden className="size-4" />
                 {story.location}
               </span>
-              <span className="flex items-center gap-1.5 text-sm text-white/55">
+              <span className="flex items-center gap-1.5 text-sm text-white/75">
                 <CalendarDays aria-hidden className="size-4" />
                 {published}
               </span>
-              <span className="text-sm text-white/55">{story.readingTime}</span>
+              <span className="text-sm text-white/75">{story.readingTime}</span>
             </div>
 
             <h1 className="headline mt-6 max-w-4xl text-[2.4rem] sm:text-5xl lg:text-[3.9rem]">
@@ -101,13 +101,13 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
             <div className="mt-14 grid gap-12 lg:grid-cols-[1.4fr_0.6fr] lg:gap-16">
               <div>
                 <Reveal>
-                  <div className="space-y-6 text-[1.1875rem] leading-[1.75] text-ink-700">
+                  <div className="space-y-6 text-[1.1875rem] leading-[1.75] text-slate-700">
                     {story.body.map((paragraph, index) => (
                       <p
                         key={paragraph.slice(0, 32)}
                         className={
                           index === 0
-                            ? "text-[1.3125rem] leading-[1.65] text-ink-800 first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-[4.2rem] first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-saffron-600"
+                            ? "text-[1.3125rem] leading-[1.65] text-slate-800 first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-[4.2rem] first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-orange-600"
                             : undefined
                         }
                       >
@@ -118,23 +118,23 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
                 </Reveal>
 
                 <Reveal index={1}>
-                  <figure className="my-12 rounded-3xl bg-ink-950 p-8 text-white sm:p-10">
-                    <Quote aria-hidden className="size-8 text-saffron-400" />
+                  <figure className="my-12 rounded-3xl bg-slate-950 p-8 text-white sm:p-10">
+                    <Quote aria-hidden className="size-8 text-orange-400" />
                     <blockquote className="mt-5">
                       <p className="font-display text-2xl font-bold leading-[1.3] tracking-[-0.02em] sm:text-3xl">
                         &ldquo;{story.quote.text}&rdquo;
                       </p>
                     </blockquote>
-                    <figcaption className="mt-6 text-sm font-semibold text-saffron-300">
+                    <figcaption className="mt-6 text-sm font-semibold text-orange-300">
                       — {story.quote.attribution}
                     </figcaption>
                   </figure>
                 </Reveal>
 
                 <Reveal index={2}>
-                  <div className="rounded-2xl border border-ink-200 bg-ink-50 p-6">
-                    <p className="text-sm leading-relaxed text-ink-600">
-                      <strong className="font-bold text-ink-900">On consent:</strong> every person in our
+                  <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      <strong className="font-bold text-slate-900">On consent:</strong> every person in our
                       stories has given written permission for their name, photograph and circumstances to be
                       published. Where a family prefers anonymity, we change the name and say so.
                     </p>
@@ -144,17 +144,17 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
               <aside className="lg:sticky lg:top-28 lg:self-start">
                 <Reveal index={1}>
-                  <div className="rounded-3xl border border-ink-200 bg-white p-7 shadow-soft">
-                    <h2 className="font-display text-lg font-extrabold tracking-[-0.02em] text-ink-900">
+                  <div className="rounded-3xl border border-stone-200 bg-white p-7 shadow-soft">
+                    <h2 className="font-display text-lg font-extrabold tracking-[-0.02em] text-slate-900">
                       The numbers
                     </h2>
                     <dl className="mt-6 space-y-5">
                       {story.facts.map((fact) => (
-                        <div key={fact.label} className="border-b border-ink-200 pb-5 last:border-0 last:pb-0">
-                          <dd className="font-display text-3xl font-extrabold tracking-[-0.03em] text-ink-900">
+                        <div key={fact.label} className="border-b border-stone-200 pb-5 last:border-0 last:pb-0">
+                          <dd className="font-display text-3xl font-extrabold tracking-[-0.03em] text-slate-900">
                             {fact.value}
                           </dd>
-                          <dt className="mt-1 text-xs font-medium uppercase tracking-[0.1em] text-ink-500">
+                          <dt className="mt-1 text-xs font-medium uppercase tracking-[0.1em] text-slate-600">
                             {fact.label}
                           </dt>
                         </div>
@@ -167,7 +167,7 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
                         <ArrowRight aria-hidden />
                       </Link>
                     </Button>
-                    <p className="mt-3 text-center text-xs text-ink-500">
+                    <p className="mt-3 text-center text-xs text-slate-600">
                       100% of your gift reaches the field.
                     </p>
                   </div>
@@ -178,15 +178,15 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         </div>
       </article>
 
-      <section className="bg-ink-50 py-20 lg:py-24">
+      <section className="bg-stone-50 py-20 lg:py-24">
         <div className="container-page">
-          <h2 className="headline text-3xl text-ink-900 sm:text-4xl">Read next</h2>
+          <h2 className="headline text-3xl text-slate-900 sm:text-4xl">Read next</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {others.map((other, index) => (
               <Reveal key={other.slug} index={index}>
                 <Link
                   href={`/impact-stories/${other.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-ink-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift hover:ring-saffron-300"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-stone-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift hover:ring-orange-300"
                 >
                   <MediaFrame
                     alt={other.title}
@@ -197,17 +197,17 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
                   />
                   <div className="flex flex-1 flex-col p-7">
                     <Badge className="self-start">{other.programme}</Badge>
-                    <h3 className="mt-4 font-display text-2xl font-extrabold tracking-[-0.025em] text-ink-900">
+                    <h3 className="mt-4 font-display text-2xl font-extrabold tracking-[-0.025em] text-slate-900">
                       {other.title}
                     </h3>
-                    <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-ink-600">
+                    <p className="mt-3 flex-1 text-[1.0625rem] leading-relaxed text-slate-600">
                       {other.excerpt}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-ink-900">
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-slate-900">
                       Read the story
                       <ArrowRight
                         aria-hidden
-                        className="size-4 text-saffron-600 transition-transform duration-300 group-hover:translate-x-1"
+                        className="size-4 text-orange-600 transition-transform duration-300 group-hover:translate-x-1"
                       />
                     </span>
                   </div>

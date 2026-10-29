@@ -18,7 +18,7 @@ export default function ImpactStoriesPage() {
         eyebrow="Impact stories"
         title={
           <>
-How the work actually runs, <span className="text-saffron-400">told plainly.</span>
+How the work actually runs, <span className="text-orange-400">told plainly.</span>
           </>
         }
         lede="No composite characters and no stock photography. These are programme accounts — what each one does, who carries it out in Panjab, and the costs behind it. Family stories will be added here with written consent."
@@ -27,7 +27,7 @@ How the work actually runs, <span className="text-saffron-400">told plainly.</sp
       <CtaBand
         title={
           <>
-            The next story <span className="text-saffron-400">has not been written yet.</span>
+            The next story <span className="text-orange-400">has not been written yet.</span>
           </>
         }
         body="A roof before the next monsoon, a cataract surgery, a school year that does not end early. Each one starts with a donation that arrives whole."

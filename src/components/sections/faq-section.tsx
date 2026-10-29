@@ -21,15 +21,15 @@ export function FaqSection({ limit }: { limit?: number }) {
             eyebrow="Questions, answered"
             title={
               <>
-                The questions <span className="text-ink-400">we would ask too.</span>
+                The questions <span className="text-slate-500">we would ask too.</span>
               </>
             }
           />
-          <p className="mt-6 text-[1.0625rem] leading-relaxed text-ink-600">
+          <p className="mt-6 text-[1.0625rem] leading-relaxed text-slate-600">
             Something not covered here? Email{" "}
             <a
               href={`mailto:${site.email}`}
-              className="font-semibold text-ink-900 underline decoration-saffron-400 decoration-2 underline-offset-4"
+              className="font-semibold text-slate-900 underline decoration-orange-400 decoration-2 underline-offset-4"
             >
               {site.email}
             </a>{" "}
@@ -37,14 +37,14 @@ export function FaqSection({ limit }: { limit?: number }) {
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-flex text-sm font-bold text-ink-900 underline decoration-saffron-400 decoration-2 underline-offset-4"
+            className="mt-6 inline-flex text-sm font-bold text-slate-900 underline decoration-orange-400 decoration-2 underline-offset-4"
           >
             Contact the team
           </Link>
         </div>
 
         <Reveal index={1}>
-          <Accordion type="single" collapsible className="border-t border-ink-200">
+          <Accordion type="single" collapsible className="border-t border-stone-200">
             {items.map((faq) => (
               <AccordionItem key={faq.question} value={faq.question}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
