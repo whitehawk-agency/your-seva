@@ -1,0 +1,734 @@
+<title>Your Seva</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600;700&display=swap">
+
+<style>
+  /* Layout: full-width colour bands, each with an inner max-width wrapper.
+     Editorial serif statements on warm paper; one orange action colour. */
+  :root {
+    --ink: #1c1917;
+    --ink-soft: #57534e;
+    --paper: #ffffff;
+    --sand: #faf9f7;
+    --orange: #c2410c;
+    --orange-bright: #ea580c;
+    --peach: #fdecdc;
+    --peach-line: #f7c99b;
+    --forest: #14532d;
+    --slate: #1e293b;
+    --line: #e7e5e4;
+
+    --serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p { margin: 0; }
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.75rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: #9a3412; }
+  .btn:active { transform: translateY(1px); }
+  .btn--pill { border-radius: 999px; min-height: 2.75rem; padding: 0.625rem 1.375rem; }
+  .btn--ghost {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+  }
+  .btn--ghost:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
+  .btn--lg { min-height: 3.5rem; padding: 1rem 2.25rem; font-size: 0.875rem; }
+
+  /* ---------- header ---------- */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    background: var(--paper);
+    z-index: 60;
+  }
+
+  .masthead {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+  }
+  .masthead__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-block: 0.75rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    letter-spacing: -0.02em;
+  }
+  .brand b { font-weight: 600; }
+  .brand span { color: var(--orange); font-weight: 600; }
+  .brand svg { flex: none; }
+
+  .badge {
+    display: none;
+    align-items: center;
+    gap: 0.375rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3125rem 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .badge:hover { border-color: var(--ink-soft); }
+  .badge svg { color: var(--forest); }
+
+  .nav { display: none; margin-left: auto; }
+  .nav ul { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+  .nav a, .nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3125rem;
+    min-height: 2.75rem;
+    padding: 0 0.75rem;
+    background: none;
+    border: 0;
+    font-family: var(--sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nav a:hover, .nav button:hover { color: var(--orange); }
+
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .masthead__brandwrap { display: flex; flex: 1; justify-content: center; gap: 0.75rem; min-width: 0; }
+  .masthead .btn { flex: none; }
+
+  .drawer {
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+    padding-block: 0.5rem 1.25rem;
+  }
+  .drawer ul { list-style: none; margin: 0; padding: 0; }
+  .drawer > ul > li { border-bottom: 1px solid var(--line); }
+  .drawer > ul > li > a {
+    display: block;
+    padding-block: 0.875rem;
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    text-decoration: none;
+  }
+
+  @media (min-width: 62rem) {
+    .menu-btn, .drawer { display: none !important; }
+    .nav, .badge { display: inline-flex; }
+    .masthead__brandwrap { flex: 0 0 auto; justify-content: flex-start; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: 30rem;
+    background: #3f2d1d;
+    overflow: hidden;
+  }
+  .hero__art { position: absolute; inset: 0; z-index: -2; }
+  .hero__art span {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(80px);
+  }
+  .hero__art span:nth-child(1) { inset: -20% auto auto -10%; width: 70%; aspect-ratio: 1; background: #b45309; }
+  .hero__art span:nth-child(2) { inset: auto auto -30% 25%; width: 65%; aspect-ratio: 1; background: #8a6a3f; }
+  .hero__art span:nth-child(3) { inset: 10% -10% auto auto; width: 55%; aspect-ratio: 1; background: #14532d; }
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(12, 10, 9, 0.78), rgba(12, 10, 9, 0.42) 55%, rgba(12, 10, 9, 0.7));
+  }
+  .hero__inner { padding-block: 5rem; }
+  .hero__text { max-width: 36rem; }
+  .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); color: #fff; }
+  .hero p {
+    margin-top: 1.5rem;
+    max-width: 32rem;
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
+  .slot {
+    position: absolute;
+    z-index: 2;
+    border-radius: 8px;
+    background: rgba(12, 10, 9, 0.82);
+    padding: 0.375rem 0.625rem;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .hero .slot { right: 0.75rem; top: 0.75rem; max-width: 13rem; text-align: right; }
+
+  /* ---------- sections ---------- */
+  .band { background: var(--paper); }
+  .band--sand { background: var(--sand); }
+  .band--dark { background: var(--slate); color: #fff; }
+  .band__inner { padding-block: clamp(3.5rem, 9vw, 6.5rem); }
+
+  .centred { max-width: 44rem; margin-inline: auto; text-align: center; }
+  .centred h2 { font-size: clamp(1.875rem, 5vw, 3.125rem); margin-top: 1.25rem; }
+  .centred > p.lede { margin-top: 1.5rem; color: var(--ink-soft); font-size: 1.0625rem; }
+
+  /* film block */
+  .film {
+    position: relative;
+    margin: 3.5rem 0 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #0c0a09;
+    aspect-ratio: 16 / 9;
+  }
+  @media (min-width: 48rem) { .film { aspect-ratio: 2 / 1; } }
+  .film__art { position: absolute; inset: 0; }
+  .film__art span { position: absolute; border-radius: 999px; filter: blur(70px); }
+  .film__art span:nth-child(1) { inset: 8% auto auto 12%; width: 55%; aspect-ratio: 1; background: #9a3412; opacity: 0.55; }
+  .film__art span:nth-child(2) { inset: auto 6% -20% auto; width: 50%; aspect-ratio: 1; background: #14532d; opacity: 0.6; }
+  .film__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .film__play i {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    transition: transform 0.25s;
+  }
+  .film__play:hover i { transform: scale(1.06); }
+  .film .slot { left: 0.875rem; top: 0.875rem; }
+
+  /* 100% panel */
+  .hundred {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 48rem;
+    margin: 3rem auto 0;
+    border: 1px solid var(--peach-line);
+    border-radius: 18px;
+    background: var(--peach);
+    padding: 1.75rem;
+    text-align: center;
+  }
+  .hundred__ring {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 6rem;
+    height: 6rem;
+    border: 2px solid var(--orange);
+    border-radius: 999px;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #7c2d12;
+  }
+  .hundred p { font-size: 0.9375rem; color: #7c2d12; }
+  @media (min-width: 40rem) {
+    .hundred { flex-direction: row; gap: 1.75rem; text-align: left; padding: 2rem; }
+  }
+
+  /* impact ledger */
+  .ledger {
+    margin-top: 2.5rem;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 24px 48px -24px rgba(12, 10, 9, 0.5);
+  }
+  .ledger__top { display: grid; }
+  @media (min-width: 40rem) { .ledger__top { grid-template-columns: 1fr 1fr; } }
+  .ledger__id, .ledger__fig { padding: 1.5rem; }
+  .ledger__id { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); }
+  .ledger__id i { display: block; flex: none; width: 3rem; height: 3rem; border-radius: 999px; background: var(--orange-bright); }
+  .ledger__fig { text-align: left; border-bottom: 1px solid var(--line); }
+  @media (min-width: 40rem) {
+    .ledger__id { border-right: 1px solid var(--line); }
+    .ledger__fig { text-align: right; }
+  }
+  .ledger__name { font-family: var(--serif); font-size: 1.5rem; }
+  .ledger__fig b { display: block; font-family: var(--serif); font-size: 2rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .ledger small { display: block; margin-top: 0.125rem; font-size: 0.75rem; color: var(--ink-soft); }
+
+  .ledger__stats { display: grid; gap: 1px; background: var(--line); }
+  @media (min-width: 30rem) { .ledger__stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 60rem) { .ledger__stats { grid-template-columns: repeat(4, 1fr); } }
+  .ledger__stats div { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .ledger__stats b { display: block; font-family: var(--serif); font-size: 1.875rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .ledger__stats strong { display: block; margin-top: 0.25rem; font-size: 0.875rem; }
+  .band--dark .foot { margin-top: 1.75rem; text-align: center; font-size: 0.875rem; color: rgba(255, 255, 255, 0.72); }
+
+  /* take action carousel */
+  .rail {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 3rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .card {
+    flex: 0 0 17rem;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--paper);
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(12, 10, 9, 0.45); }
+  .card__art { position: relative; aspect-ratio: 4 / 3; }
+  .card__art .slot { left: 0.625rem; top: 0.625rem; font-size: 0.5625rem; }
+  .card__art b {
+    position: absolute;
+    inset: auto 0 0 0;
+    background: var(--forest);
+    color: #fff;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .card__body { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.125rem; flex: 1; }
+  .card__kind { font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); }
+  .card__body p { font-size: 0.875rem; color: var(--ink-soft); flex: 1; }
+  .card__go { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .card__go span { color: var(--orange); }
+
+  .rail-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
+  .rail-nav button {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid rgba(28, 25, 23, 0.2);
+    border-radius: 999px;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .rail-nav button:hover:not(:disabled) { border-color: rgba(28, 25, 23, 0.5); background: rgba(28, 25, 23, 0.04); }
+  .rail-nav button:disabled { opacity: 0.3; cursor: default; }
+
+  /* footer */
+  .footer { background: #0c0a09; color: rgba(255, 255, 255, 0.72); }
+  .footer__inner { display: grid; gap: 2.5rem; padding-block: 3.5rem 2rem; }
+  @media (min-width: 48rem) { .footer__inner { grid-template-columns: 1.2fr 1fr 1fr; } }
+  .footer h3 { font-family: var(--sans); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+  .footer ul { list-style: none; margin: 0.875rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+  .footer a { text-decoration: none; }
+  .footer a:hover { color: #fff; text-decoration: underline; }
+  .footer__legal { border-top: 1px solid rgba(255, 255, 255, 0.12); padding-block: 1.25rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.55); }
+  .footer .brand { color: #fff; }
+  .footer .brand b { color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <div class="masthead__brandwrap">
+      <a class="brand" href="#top">
+        <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="#ea580c"/>
+          <path d="M11.6 20.2a8.4 8.4 0 0 1 16.8 0Z" fill="#1c1917" opacity=".92"/>
+          <rect x="7.8" y="22.7" width="24.4" height="2.9" rx="1.45" fill="#1c1917" opacity=".92"/>
+          <rect x="12.8" y="28" width="14.4" height="2.6" rx="1.3" fill="#1c1917" opacity=".45"/>
+        </svg>
+        <b>Your <span>Seva</span></b>
+      </a>
+      <a class="badge" href="https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1162477&amp;subid=0" target="_blank" rel="noreferrer noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        UK Charity No. 1162477
+      </a>
+    </div>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="#take-action">Take Action</a></li>
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#hundred">Why Your Seva?</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--pill" href="#give">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2 4.3-9.5 9-9.5 9Z"/></svg>
+      Donate
+    </a>
+  </div>
+
+  <div class="wrap drawer" id="drawer" hidden>
+    <ul>
+      <li><a href="#take-action">Take Action</a></li>
+      <li><a href="#why">About Us</a></li>
+      <li><a href="#hundred">Why Your Seva?</a></li>
+      <li><a href="#impact">Our Impact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero__art" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <p class="slot">Photo slot — field visit in Panjab</p>
+
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <h1>Serve Humanity Globally</h1>
+        <p>Selfless service for neglected, abandoned and poverty-stricken families in Panjab — food every month, homes made safe, and school fees for children who would otherwise stop.</p>
+        <div class="hero__actions">
+          <a class="btn btn--lg" href="#give">Give today</a>
+          <a class="btn btn--lg btn--ghost" href="#take-action">Our work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="why">
+    <div class="wrap band__inner">
+      <div class="centred">
+        <p class="label">Why Your Seva?</p>
+        <h2>Serving the unfortunate across the globe selflessly.</h2>
+      </div>
+
+      <figure class="film">
+        <div class="film__art" aria-hidden="true"><span></span><span></span></div>
+        <p class="slot">Video slot — the Your Seva film</p>
+        <button class="film__play" type="button">
+          <i aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+          </i>
+          Watch our film
+        </button>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="give">
+    <div class="wrap band__inner" style="padding-top: 0">
+      <div class="centred">
+        <h2>£15 feeds a family for a month. Most households we visit have no income at all.</h2>
+        <p class="lede">You can help open the door to food, shelter, dignity and education — especially for elders living alone and children whose schooling is about to end.</p>
+        <p style="margin-top: 2.25rem"><a class="btn btn--lg" href="#">Give today</a></p>
+      </div>
+
+      <div class="hundred" id="hundred">
+        <span class="hundred__ring">100%</span>
+        <p>Thanks to Gift Aid and a small circle of private donors who cover our running costs, <strong>100% of your donation goes directly to projects</strong> in Panjab — food, home rebuilding, winter care and school fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--dark" id="impact">
+    <div class="wrap band__inner">
+      <p class="label" style="color: #fdba74; text-align: center">Charity impact till date</p>
+
+      <div class="ledger">
+        <div class="ledger__top">
+          <div class="ledger__id">
+            <i aria-hidden="true"></i>
+            <div>
+              <div class="ledger__name">Your Seva</div>
+              <small>Last updated: 21 October 2026</small>
+            </div>
+          </div>
+          <div class="ledger__fig">
+            <b>£163,362</b>
+            <small>Charitable spend, year to 30 November 2024</small>
+          </div>
+        </div>
+
+        <div class="ledger__stats">
+          <div><b>100%</b><strong>To the field</strong><small>Our 100% donation policy</small></div>
+          <div><b>£15</b><strong>Feeds a family for a month</strong><small>The published Ration Panee cost</small></div>
+          <div><b>4</b><strong>Programmes running</strong><small>Food, housing, elder care, education</small></div>
+          <div><b>11 yrs</b><strong>Serving families in Panjab</strong><small>A registered charity since 2014</small></div>
+        </div>
+      </div>
+
+      <p class="foot">Figures come from the charity's filed accounts and published unit costs. Cumulative programme totals are being added as the trustees confirm them.</p>
+    </div>
+  </section>
+
+  <section class="band band--sand" id="take-action">
+    <div class="wrap band__inner">
+      <div class="centred">
+        <h2>Ready to take action?</h2>
+        <p class="lede">There are lots of ways to help families in Panjab. Take action today, and change lives.</p>
+      </div>
+
+      <div class="rail" id="rail">
+        <a class="card" href="#">
+          <div class="card__art" style="background: linear-gradient(180deg, #bae6fd, #86efac)">
+            <span class="slot">Photo slot</span><b>Your Seva Hike</b>
+          </div>
+          <div class="card__body">
+            <span class="card__kind">Fundraise</span>
+            <p>Walk a distance, raise a month of food for a family. Packs and sponsorship pages provided.</p>
+            <span class="card__go">Take action <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__art" style="background: linear-gradient(180deg, #fde68a, #fdba74)">
+            <span class="slot">Photo slot</span><b>Farmers Support</b>
+          </div>
+          <div class="card__body">
+            <span class="card__kind">Appeal</span>
+            <p>Stand with farming households hit by failed harvests, debt and flood damage.</p>
+            <span class="card__go">Take action <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__art" style="background: linear-gradient(180deg, #fed7aa, #fda4af)">
+            <span class="slot">Photo slot</span><b>Shaheed Families</b>
+          </div>
+          <div class="card__body">
+            <span class="card__kind">Programme</span>
+            <p>Ongoing support for the families left behind — rations, schooling and home repair.</p>
+            <span class="card__go">Take action <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__art" style="background: linear-gradient(180deg, #a7f3d0, #5eead4)">
+            <span class="slot">Photo slot</span><b>Free School Fees</b>
+          </div>
+          <div class="card__body">
+            <span class="card__kind">Sponsor</span>
+            <p>Sponsor a single-parent or orphaned child through a full year of schooling.</p>
+            <span class="card__go">Take action <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="rail-nav">
+        <button type="button" id="rail-prev" aria-label="Previous actions">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"/></svg>
+        </button>
+        <button type="button" id="rail-next" aria-label="More actions">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <a class="brand" href="#top">
+        <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="#ea580c"/>
+          <path d="M11.6 20.2a8.4 8.4 0 0 1 16.8 0Z" fill="#0c0a09" opacity=".92"/>
+          <rect x="7.8" y="22.7" width="24.4" height="2.9" rx="1.45" fill="#0c0a09" opacity=".92"/>
+          <rect x="12.8" y="28" width="14.4" height="2.6" rx="1.3" fill="#0c0a09" opacity=".45"/>
+        </svg>
+        <b>Your <span>Seva</span></b>
+      </a>
+      <p style="margin-top: 1rem; max-width: 24rem; font-size: 0.9375rem">Selfless service, carried faithfully. 100% of public donations fund food, home rebuilding, elder care and education in Panjab.</p>
+    </div>
+
+    <nav aria-label="Our work">
+      <h3>Our work</h3>
+      <ul>
+        <li><a href="#take-action">Ration Panee</a></li>
+        <li><a href="#take-action">Housing &amp; rebuilding</a></li>
+        <li><a href="#take-action">Elder &amp; winter care</a></li>
+        <li><a href="#take-action">Education</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Transparency">
+      <h3>Transparency</h3>
+      <ul>
+        <li><a href="#hundred">The 100% model</a></li>
+        <li><a href="#impact">Our impact</a></li>
+        <li><a href="https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1162477&amp;subid=0" target="_blank" rel="noreferrer noopener">Charity Commission entry</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer__legal">
+    © 2026 Your Seva. Registered charity number 1162477. Company number 09320448.
+  </div>
+</footer>
+
+<script>
+  // Mobile drawer
+  (function () {
+    var btn = document.getElementById("menu-btn");
+    var drawer = document.getElementById("drawer");
+    btn.addEventListener("click", function () {
+      var open = drawer.hidden;
+      drawer.hidden = !open;
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    drawer.addEventListener("click", function (e) {
+      if (e.target.closest("a")) {
+        drawer.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+
+  // Take-action rail
+  (function () {
+    var rail = document.getElementById("rail");
+    var prev = document.getElementById("rail-prev");
+    var next = document.getElementById("rail-next");
+    function sync() {
+      prev.disabled = rail.scrollLeft <= 4;
+      next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+    }
+    function step(dir) {
+      var card = rail.querySelector(".card");
+      var by = card ? card.clientWidth + 20 : rail.clientWidth * 0.8;
+      rail.scrollBy({ left: dir * by, behavior: "smooth" });
+    }
+    prev.addEventListener("click", function () { step(-1); });
+    next.addEventListener("click", function () { step(1); });
+    rail.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync);
+    sync();
+  })();
+</script>
